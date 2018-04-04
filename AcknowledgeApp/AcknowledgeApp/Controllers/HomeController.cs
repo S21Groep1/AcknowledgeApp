@@ -18,6 +18,7 @@ namespace AcknowledgeApp.Controllers
         // Returns .../Home/Homepage
         public ActionResult Homepage()
         {
+            //property's email and wachtwoord are setted
             return View();
         }
     }
