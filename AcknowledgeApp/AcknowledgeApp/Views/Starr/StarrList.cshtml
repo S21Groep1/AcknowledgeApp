@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewData["Title"] = "StarrList";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/css/StarrListStyle.css")" rel="stylesheet" type="text/css" />
+}
+@section Scripts {
+    <link href="@Url.Content("~/js/StarrListScript.js")" rel="script" />
+}
+
+<div class="container">
+    <div class="container-fluid" style="background-color: white; border-radius: 25px;">
+        <div class="row content">
+            <div class=" text-center">
+                <h1 style="color: #0082CA">STARR List</h1>
+                <h4 class="text-center"> All STARR forms</h4>
+                <hr>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+                <br>
+                <table id="myTable">
+                    <tr class="header">
+                        <th style="width:40%;" onclick="sortTable(0)">Title</th>
+                        <th style="width:25%;" onclick="sortTable(1)">Date</th>
+                        <th style="width:25%;" onclick="sortTable(2)">Coach</th>
+                        <th style="width:10%;"></th>
+                    </tr>
+                    <tr>
+                        <td>Teamwork</td>
+                        <td>03-06-2017</td>
+                        <td>Linda</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td>Class Modeling</td>
+                        <td>24-07-2017</td>
+                        <td>Henk</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td>Analysing</td>
+                        <td>02-03-2018</td>
+                        <td>Peter</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td>Writing</td>
+                        <td>16-12-2017</td>
+                        <td>Dave</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td>Teamwork 2</td>
+                        <td>08-06-2017</td>
+                        <td>Constance</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td>Class Modeling 2</td>
+                        <td>30-07-2017</td>
+                        <td>Rita</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td>Analysing 2</td>
+                        <td>07-03-2018</td>
+                        <td>Hans</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+                    </tr>
+                    <tr>
+                        <td>Writing 2</td>
+                        <td>14-12-2017</td>
+                        <td>Piet</td>
+                        <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height: 30px;"></div>
+
