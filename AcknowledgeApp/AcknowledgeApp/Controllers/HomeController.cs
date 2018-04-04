@@ -14,5 +14,11 @@ namespace AcknowledgeApp.Controllers
         {
             return View();
         }
+
+        // Returns .../Home/Homepage
+        public ActionResult Homepage()
+        {
+            return View();
+        }
     }
 }

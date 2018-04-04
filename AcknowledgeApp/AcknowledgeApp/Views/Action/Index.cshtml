@@ -1,7 +1,121 @@
-﻿
+﻿@section Styles {
+    <link href="@Url.Content("~/Styles/ActiepuntenStyle.css")" rel="stylesheet" type="text/css" />
+}
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<div class="container">
+    <div class="container-fluid" style="background-color: white; border-radius: 25px;">
+        <div class="row content">
+            <div class=" text-center">
+                <h1 style="color: #0082CA">Actionpoints</h1>
+                <div id="form-div">
+                    <form>
+                        <table id="action-table">
+                            <tr>
+                                <!-- Dropdown input Skills -->
+                                <td>
+                                    <label for="Skill">Select softskill:</label>
+                                </td>
+                                <td>
+                                    <select class="form-control" id="Skill">
+                                        <option>Softskill 1</option>
+                                        <option>Softskill 2</option>
+                                        <option>Softskill 3</option>
+                                        <option>Softskill 4</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Dropdown input Coach -->
+                                <td>
+                                    <label for="Coach">Select coach:</label>
+                                </td>
+                                <td>
+                                    <select class="form-control" id="Coach">
+                                        <option>Coach 1</option>
+                                        <option>Coach 2</option>
+                                        <option>Coach 3</option>
+                                        <option>Coach 4</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Text input S -->
+                                <td>
+                                    <label for="Start">Start:</label>
+                                </td>
+                                <td>
+                                    <textarea name="Start"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Text input S -->
+                                <td>
+                                    <label for="Start">Start:</label>
+                                </td>
+                                <td>
+                                    <textarea name="Start"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Text input T -->
+                                <td>
+                                    <label for="Taak">Taak:</label>
+                                </td>
+                                <td>
+                                    <textarea name="Taak"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Text input A -->
+                                <td>
+                                    <label for="Aanpak">Aanpak:</label>
+                                </td>
+                                <td>
+                                    <textarea name="Aanpak"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Text input R1 -->
+                                <td>
+                                    <label for="Resultaat">Resultaat:</label>
+                                </td>
+                                <td>
+                                    <textarea name="Resultaat"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Text input R2 -->
+                                <td>
+                                    <label for="Reflectie">Reflectie:</label>
+                                </td>
+                                <td>
+                                    <textarea name="Reflectie"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Submit button -->
+                                <td colspan="2">
+                                    <div id="cool-button">
+                                        <figure>
+                                            <div>
+                                                <span>Submit</span>
+                                                <span>Submit</span>
+                                            </div>
+                                        </figure>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height: 30px;"></div>
 
