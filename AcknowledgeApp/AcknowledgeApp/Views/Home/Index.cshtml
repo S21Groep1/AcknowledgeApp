@@ -28,12 +28,13 @@
                         <input type="email" name="email" placeholder="Email" required class="form-control input-lg" />
                         <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
                         <div class="pwstrength_viewport_progress"></div>
-                        <button type="submit" name="go" class="btn btn-lg btn-success btn-block" >Sign in</button>
+                        <button type="submit" name="go" class="btn btn-lg btn-success btn-block">Sign in</button>
                         <div>
-                            <p class="createLabel"><a href="@Url.Action("Reset", "Home")">Reset password</a></p>
+                            <p class="createLabel">@Html.ActionLink("Reset password", "Reset", "Home")</p>
                         </div>
                     </form>
-
+                    @*@Html.ActionLink("link text", "someaction", "somecontroller", new { id = "123" }, null)
+                    @Url.Action("Reset", "Home")*@
                 </section>
 
             </div>
