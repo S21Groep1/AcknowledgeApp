@@ -1,13 +1,12 @@
-﻿
-@{
-    ViewData["Title"] = "StarrList";
-}
-
-@section Styles {
+﻿@section Styles {
     <link href="@Url.Content("~/css/StarrListStyle.css")" rel="stylesheet" type="text/css" />
 }
 @section Scripts {
-    <link href="@Url.Content("~/js/StarrListScript.js")" rel="script" />
+    <link src="@Url.Content("~/js/StarrListScript.js")" type="text/javascript" />
+}
+
+@{
+    ViewData["Title"] = "StarrList";
 }
 
 <div class="container">
