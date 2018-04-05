@@ -6,9 +6,17 @@ namespace Models
 {
     public class Actionpoint
     {
-        private string actionpointname;
+        
+        private DateTime startDate;
+        private DateTime deadline;
+        private bool iscomplete;
+        private string smart;
 
-        public string Actionpointname { get => actionpointname; set => actionpointname = value; }
+
+        public DateTime StartDate { get => startDate; set => startDate = value; }
+        public DateTime Deadline { get => deadline; set => deadline = value; }
+        public bool Iscomplete { get => iscomplete; set => iscomplete = value; }
+        public string SMART { get => smart; set => smart = value; }
 
         public List<string> Softskilllist()
         {

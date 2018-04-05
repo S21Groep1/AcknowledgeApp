@@ -15,7 +15,7 @@ namespace AcknowledgeApp.Models
         {
             get
             {
-                return actiepunt.Softskilllist(); ;
+                return actiepunt.Softskilllist();
             }
         }
 
