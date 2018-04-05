@@ -1,4 +1,5 @@
-﻿@section Styles {
+﻿@model AcknowledgeApp.Models.Viewmodel
+@section Styles {
     <link href="@Url.Content("~/css/ActiepuntenStyle.css")" rel="stylesheet" type="text/css" />
 }
 
@@ -21,10 +22,11 @@
                                 </td>
                                 <td>
                                     <select class="form-control" id="Skill">
-                                        <option>Softskill 1</option>
-                                        <option>Softskill 2</option>
-                                        <option>Softskill 3</option>
-                                        <option>Softskill 4</option>
+                                        @foreach (string softskill in Model.Actionpoints)
+                                        {
+                                            <option>@softskill</option>
+                                        }
+
                                     </select>
                                 </td>
                             </tr>
