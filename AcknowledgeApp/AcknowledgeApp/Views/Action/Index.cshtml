@@ -18,7 +18,7 @@
                         <div class="form-group">
                             <label for="sel1">Select Softskill:</label>
                             <select class="form-control" id="Skill">
-                                @foreach (string softskill in Model.Actionpoints)
+                                @foreach (string softskill in Model.Softskilllist())
                                 {
                                     <option>@softskill</option>
                                 }
