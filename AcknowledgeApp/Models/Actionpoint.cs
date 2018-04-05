@@ -16,27 +16,31 @@ namespace Models
         private DateTime deadline;
 
         
-
-        public DateTime StartDate { get => startDate; set => startDate = value; }
+        
         public bool Iscomplete { get => iscomplete; set => iscomplete = value; }
         public string Specific { get => specific; set => specific = value; }
         public string Measurable { get => measurable; set => measurable = value; }
         public string Assignable { get => assignable; set => assignable = value; }
         public string Realistic { get => realistic; set => realistic = value; }
-        public DateTime Deadline { get => deadline; set => deadline = value; }
 
-        //public string[] dateformats = { "d" };
-        //public string stringoutput;
-        //public string Date()
-        //{
-        //    foreach
-        //}
+        //date mm/dd/yy
+        string[] dateformats = { "d" };
+        string datetime;
+        
+        public string StartDate()
+        {
+            foreach(string datefrmts in dateformats)
+            {
+                datetime = string.Format("{0}\n", startDate.ToString(datefrmts));
+            }
+            return datetime;
+        }
 
 
 
         public override string ToString()
         {
-            return Specific + ", " + Measurable + ", " + Assignable + ", " + Realistic + ", " + "Deadline";
+            return Specific + ", " + Measurable + ", " + Assignable + ", " + Realistic + ", " + StartDate();
         }
 
     }
