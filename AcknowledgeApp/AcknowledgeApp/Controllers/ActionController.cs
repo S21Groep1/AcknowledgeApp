@@ -11,6 +11,7 @@ namespace AcknowledgeApp.Controllers
     {
         public IActionResult Index(Viewmodel viewmodel)
         {
+            viewmodel.Softskilllist();
             return View(viewmodel);
         }
     }
