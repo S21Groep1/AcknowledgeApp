@@ -8,17 +8,28 @@ namespace AcknowledgeApp.Models
 {
     public class Viewmodel
     {
-        Actionpoint actiepunt = new Actionpoint();
-        
-        
-        public List<string> Actionpoints
+        public List<string> Softskilllist()
         {
-            get
-            {
-                return actiepunt.Softskilllist();
-            }
+            List<string> softskills = new List<string>();
+            //string propably needs to be replaced with the class softskills, this makes the rows below unnecessary
+            softskills.Add("Communicatie");
+            softskills.Add("Conflicthantering");
+            softskills.Add("Interviewen");
+            softskills.Add("Onderzoek");
+            softskills.Add("Presenteren");
+            softskills.Add("Project");
+            softskills.Add("Rapporteren");
+            softskills.Add("Reflecteren");
+            softskills.Add("Samenwerken");
+            softskills.Add("Schrijfvaardigheden");
+            softskills.Add("Documenteren");
+            softskills.Add("Omgang met feedback");
+            softskills.Add("Initiatief nemen");
+            softskills.Add("Plannen");
+            return softskills;
         }
 
+        
 
     }
 }

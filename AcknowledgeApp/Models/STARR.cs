@@ -10,6 +10,7 @@ namespace Models
         private DateTime startDate;
         private DateTime lastEdit;
         private string situation;
+        private string task;
         private string action;
         private string result;
         private string reflection;
@@ -19,6 +20,7 @@ namespace Models
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime LastEdit { get => lastEdit; set => lastEdit = value; }
         public string Situation { get => situation; set => situation = value; }
+        public string Task { get => task; set => task = value; }
         public string Action { get => action; set => action = value; }
         public string Result { get => result; set => result = value; }
         public string Reflection { get => reflection; set => reflection = value; }

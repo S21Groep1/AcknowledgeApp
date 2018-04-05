@@ -22,7 +22,7 @@
                                 </td>
                                 <td>
                                     <select class="form-control" id="Skill">
-                                        @foreach (string softskill in Model.Actionpoints)
+                                        @foreach (string softskill in Model.Softskilllist())
                                         {
                                             <option>@softskill</option>
                                         }

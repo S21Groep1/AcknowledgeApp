@@ -7,41 +7,28 @@ namespace Models
     public class Actionpoint
     {
         
-        private DateTime startDate;
-        private DateTime deadline;
+        private DateTime startDate = DateTime.Now;
         private bool iscomplete;
-        private string smart;
+        private string specific;
+        private string measurable;
+        private string assignable;
+        private string realistic;
+        private DateTime deadline;
+
+
 
 
         public DateTime StartDate { get => startDate; set => startDate = value; }
-        public DateTime Deadline { get => deadline; set => deadline = value; }
         public bool Iscomplete { get => iscomplete; set => iscomplete = value; }
-        public string SMART { get => smart; set => smart = value; }
-
-        public List<string> Softskilllist()
-        {
-            List<string> softskills = new List<string>();
-            //string propably needs to be replaced with the class softskills, this makes the rows below unnecessary
-            softskills.Add("Communicatie");
-            softskills.Add("Conflicthantering");
-            softskills.Add("Interviewen");
-            softskills.Add("Onderzoek");
-            softskills.Add("Presenteren");
-            softskills.Add("Project");
-            softskills.Add("Rapporteren");
-            softskills.Add("Reflecteren");
-            softskills.Add("Samenwerken");
-            softskills.Add("Schrijfvaardigheden");
-            softskills.Add("Documenteren");
-            softskills.Add("Omgang met feedback");
-            softskills.Add("Initiatief nemen");
-            softskills.Add("Plannen");
-            return softskills;
-        }
+        public string Specific { get => specific; set => specific = value; }
+        public string Measurable { get => measurable; set => measurable = value; }
+        public string Assignable { get => assignable; set => assignable = value; }
+        public string Realistic { get => realistic; set => realistic = value; }
+        public DateTime Deadline { get => deadline; set => deadline = value; }
 
         public override string ToString()
         {
-            return Actionpointname;
+            return Specific + ", " + Measurable + ", " + Assignable + ", " + Realistic + ", " + "Deadline";
         }
 
     }
