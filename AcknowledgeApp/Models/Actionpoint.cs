@@ -15,8 +15,7 @@ namespace Models
         private string realistic;
         private DateTime deadline;
 
-
-
+        
 
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public bool Iscomplete { get => iscomplete; set => iscomplete = value; }
@@ -25,6 +24,15 @@ namespace Models
         public string Assignable { get => assignable; set => assignable = value; }
         public string Realistic { get => realistic; set => realistic = value; }
         public DateTime Deadline { get => deadline; set => deadline = value; }
+
+        //public string[] dateformats = { "d" };
+        //public string stringoutput;
+        //public string Date()
+        //{
+        //    foreach
+        //}
+
+
 
         public override string ToString()
         {
