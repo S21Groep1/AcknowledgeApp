@@ -1,4 +1,5 @@
 ﻿@model AcknowledgeApp.Models.Viewmodel
+
 @section Styles {
     <link href="@Url.Content("~/css/ActiepuntenStyle.css")" rel="stylesheet" type="text/css" />
 }
@@ -12,106 +13,74 @@
         <div class="row content">
             <div class=" text-center">
                 <h1 style="color: #0082CA">Actionpoints</h1>
-                <div id="form-div">
-                    <form>
-                        <table id="action-table">
-                            <tr>
-                                <!-- Dropdown input Skills -->
-                                <td>
-                                    <label for="Skill">Select softskill:</label>
-                                </td>
-                                <td>
-                                    <select class="form-control" id="Skill">
-                                        @foreach (string softskill in Model.Actionpoints)
-                                        {
-                                            <option>@softskill</option>
-                                        }
-
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <!-- Dropdown input Coach -->
-                                <td>
-                                    <label for="Coach">Select coach:</label>
-                                </td>
-                                <td>
-                                    <select class="form-control" id="Coach">
-                                        <option>Coach 1</option>
-                                        <option>Coach 2</option>
-                                        <option>Coach 3</option>
-                                        <option>Coach 4</option>
-                                    </select>
-                                </td>
-                            </tr>
-                            <tr>
-                                <!-- Text input S -->
-                                <td>
-                                    <label for="Start">Start:</label>
-                                </td>
-                                <td>
-                                    <textarea name="Start"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <!-- Text input S -->
-                                <td>
-                                    <label for="Start">Start:</label>
-                                </td>
-                                <td>
-                                    <textarea name="Start"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <!-- Text input T -->
-                                <td>
-                                    <label for="Taak">Taak:</label>
-                                </td>
-                                <td>
-                                    <textarea name="Taak"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <!-- Text input A -->
-                                <td>
-                                    <label for="Aanpak">Aanpak:</label>
-                                </td>
-                                <td>
-                                    <textarea name="Aanpak"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <!-- Text input R1 -->
-                                <td>
-                                    <label for="Resultaat">Resultaat:</label>
-                                </td>
-                                <td>
-                                    <textarea name="Resultaat"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <!-- Text input R2 -->
-                                <td>
-                                    <label for="Reflectie">Reflectie:</label>
-                                </td>
-                                <td>
-                                    <textarea name="Reflectie"></textarea>
-                                </td>
-                            </tr>
-                            <tr>
-                                <!-- Submit button -->
-                                <td colspan="2">
-                                    <div id="cool-button">
-                                        <figure>
-                                            <div>
-                                                <span>Submit</span>
-                                                <span>Submit</span>
-                                            </div>
-                                        </figure>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                <div class="main-login main-center" style="max-width: 800px">
+                    <form class="" method="post" action="#">
+                        <div class="form-group">
+                            <label for="sel1">Select Softskill:</label>
+                            <select class="form-control" id="Skill">
+                                @foreach (string softskill in Model.Actionpoints)
+                                {
+                                    <option>@softskill</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Select a Coach:</label>
+                            <select class="form-control" id="sel1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="cols-sm-2 control-label">Specifiek</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon" data-toggle="modal" data-target="#specifiekModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
+                                    <textarea rows="6" type="text" class="form-control" name="Specifiek" id="Specifiek"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="cols-sm-2 control-label">Meetbaar</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon" data-toggle="modal" data-target="#meetbaarModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
+                                    <textarea rows="6" type="text" class="form-control" name="Meetbaar" id="Meetbaar"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="cols-sm-2 control-label">Acceptabel</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon" data-toggle="modal" data-target="#acceptabelModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
+                                    <textarea rows="6" type="text" class="form-control" name="Acceptabel" id="Acceptabel"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="cols-sm-2 control-label">Realistisch</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon" data-toggle="modal" data-target="#realistischModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
+                                    <textarea rows="6" type="text" class="form-control" name="Realistisch" id="Realistisch"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm" class="cols-sm-2 control-label">Tijdgebonden</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon" data-toggle="modal" data-target="#tijdgebondenModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
+                                    <textarea rows="6" type="text" class="form-control" name="Tijdgebonden" id="Tijdgebonden"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Finish</a>
+                        </div>
                     </form>
                 </div>
                 <hr>
@@ -120,4 +89,110 @@
     </div>
 </div>
 <div style="height: 30px;"></div>
+<!--  All the Modals -->
+<div class="modal fade" id="specifiekModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Specifiek</h4>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>
+                        Specifiek
+                        <ul>
+                            <li>Wat willen we bereiken?</li>
+                            <li>Wie zijn erbij betrokken?</li>
+                            <li>Waar gaan we het doen?</li>
+                            <li>Wanneer gebeurt het?</li>
+                            <li>Welke delen van de doelstelling zijn essentieel?</li>
+                            <li>Waarom willen we dit doel bereiken?</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="modal fade" id="meetbaarModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Meetbaar</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Een SMART-doelstelling is normerend: het is een maat voor de kwaliteit van de te leveren inspanningen. Hoeveel gaan we doen? Hoe kunnen we dat meten? Wat is er af als het af is?
+                    Een SMART-doel moet je kunnen zien, horen, proeven, ruiken of voelen. Er moet een systeem, methode en procedure zijn om te bepalen in welke mate het doel op een bepaald moment bereikt is. Doe zo mogelijk een nulmeting, om de startsituatie te bepalen.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="acceptabelModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Acceptabel</h4>
+            </div>
+            <div class="modal-body">
+                <p>Als je een SMART-doel voor jezelf stelt, dan is het voldoende dat je het zelf accepteert. Maar wanneer je als leidinggevende een doel voor een groep mensen stelt, dan is het belangrijk dat er draagvlak voor is. De medewerkers moeten het ook willen, anders wordt het doel niet gehaald of beklijft de verandering niet. Je kunt het draagvlak vergroten door mensen actief te betrekken bij het kiezen en formuleren van de doelstelling. Het is belangrijk ze daarbij daadwerkelijk inspraak te geven. Met name kortetermijndoelen moeten zo laag mogelijk in de organisatie worden bepaald.</p><br>
+
+                <p>Soms wordt de ‘A’ in SMART ook wel uitgelegd als “Aanwijsbaar”. Daarmee wordt bedoeld dat duidelijk moet zijn wie wat moet doen om het doel te bereiken. En een andere uitleg voor de ‘A’ is “Activerend” of “Actiegericht”: de doelstelling moet uitnodigen tot actie en energie losmaken. De doelstelling moet positief geformuleerd zijn. Er moet een actieplan zijn. Maar let erop dat een SMART-doel een bepaald resultaat voorschrijft, niet een inspanning.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="realistischModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Realistisch</h4>
+            </div>
+            <div class="modal-body">
+                <p>Is het doel haalbaar? Is er een uitvoerbaar plan met aanvaardbare inspanningen? Kunnen de betrokkenen de gevraagde resultaten daadwerkelijk beïnvloeden? Hebben ze voldoende know-how, capaciteit, middelen en bevoegdheden? Dit is belangrijk, want een onbereikbaar doel motiveert mensen niet. Soms wordt de 'R' in SMART ook wel uitgelegd als "Relevant". Een haalbare en zinvolle doelstelling is motiverend en maakt energie los.</p><br>
+                <p>Een realistische doelstelling houdt rekening met de praktijk. In geen enkele organisatie kunnen mensen 100% aan één doel werken. Er zijn altijd andere activiteiten, onverwachte gebeurtenissen en afleidingen.</p><br>
+                <p>Een doelstelling kan onrealistisch zijn als hij op een te laag niveau in de organisatie wordt opgelegd. Bijvoorbeeld: "de winst in 1 jaar met 20% verhogen" is geen goede doelstelling voor de verkoopafdeling. Winst is een integraal resultaat van het hele bedrijf.</p><br>
+                <p>Een te makkelijk doel is ook niet interessant, omdat het mensen niet uitdaagt en geen bevrediging oplevert. Het beste is doelen te stellen die net boven het niveau van de persoon of de organisatie liggen en die ongeveer 50% kans van slagen hebben. Als mensen het gevoel hebben dat ze iets extra’s moeten doen om het doel te realiseren dan voelen ze zich trots en dat geeft energie voor nieuwe doelen. Een SMART-doel moet gezien worden als een project, niet als een taak. Durf een uitdaging aan te gaan!</p><br>
+                <p>Moeilijk bereikbare doelstellingen kun je opsplitsen in kleinere haalbare subdoelstellingen. De tussentijdse resultaten geven telkens nieuwe energie.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tijdgebondenModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Tijdgebonden</h4>
+            </div>
+            <div class="modal-body">
+                <p>Met name korte-termijndoelen moeten SMART zijn. Bij lange-termijndoelen is dat niet altijd mogelijk. Wanneer beginnen we met de activiteiten? Wanneer zijn we klaar? Wanneer is het doel bereikt?</p><br>
+                <p>Een SMART-doelstelling heeft een duidelijke startdatum en einddatum.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
