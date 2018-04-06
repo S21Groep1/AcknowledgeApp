@@ -6,9 +6,10 @@ namespace Models
 {
     public enum Emotions
     {
+        VeryPositive,
         Positive,
-        Neutral,
-        Negative
+        Negative,
+        VeryNegative
     }
     public class Starrform 
     {

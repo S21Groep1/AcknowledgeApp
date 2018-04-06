@@ -17,11 +17,11 @@ namespace AcknowledgeApp.Controllers
             return View(viewmodel);
         }
 
-        //[HttpPost]
-        //public IActionResult Post(Actionpoint actionpoint)
-        //{
+        [HttpPost]
+        public IActionResult Post(Actionpoint actionpoint)
+        {
 
-        //    return View();
-        //}
+            return View();
+        }
     }
 }
