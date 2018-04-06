@@ -29,7 +29,7 @@ namespace AcknowledgeApp.Controllers
 
         public IActionResult EditStarr(int id)
         {
-            Starrform sf = logic.GetStarrById(id);
+            Starr sf = logic.GetStarrById(id);
 
             if (sf == null)
             {
@@ -40,9 +40,9 @@ namespace AcknowledgeApp.Controllers
             return View(sf);
         }
         [HttpPost]
-        public IActionResult EditStarr(Starrform starrform)
+        public IActionResult EditStarr(Starr starr)
         {
-            logic.UpdateStarr(starrform);
+            logic.UpdateStarr(starr);
             return RedirectToAction("StarrList");
         }
 

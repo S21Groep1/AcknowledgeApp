@@ -8,9 +8,9 @@ namespace AcknowledgeApp.Models
 {
     public class StarrListViewModel
     {
-        public IEnumerable <Starrform> Starrs { get; set; }
+        public IEnumerable <Starr> Starrs { get; set; }
 
-        public StarrListViewModel(IEnumerable<Starrform> starrs)
+        public StarrListViewModel(IEnumerable<Starr> starrs)
         {
             this.Starrs = starrs;
         }

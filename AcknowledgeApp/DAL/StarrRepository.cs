@@ -9,17 +9,17 @@ namespace DAL
     {
         private readonly IStarrContext context = new StarrContext();
 
-        public List<Starrform> GetAllStarrs()
+        public List<Starr> GetAllStarrs()
         {
             return context.GetAllStarrs();
         }
 
-        public Starrform GetStarrById(int id)
+        public Starr GetStarrById(int id)
         {
             return context.GetStarrById(id);
         }
 
-        public void UpdateStarr(Starrform sf)
+        public void UpdateStarr(Starr sf)
         {
             context.UpdateStarr(sf);
         }
