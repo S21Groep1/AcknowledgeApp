@@ -7,8 +7,8 @@ namespace DAL
 {
     interface IStarrContext
     {
-        List<Starrform> GetAllStarrs();
-        Starrform GetStarrById(int id);
-        void UpdateStarr(Starrform sf);
+        List<Starr> GetAllStarrs();
+        Starr GetStarrById(int id);
+        void UpdateStarr(Starr sf);
     }
 }
