@@ -11,15 +11,15 @@ namespace Logic
     {
         private StarrRepository repo = new StarrRepository();
 
-        public List<Starrform> GetAllStarrs()
+        public List<Starr> GetAllStarrs()
         {
             return repo.GetAllStarrs();
         }
-        public Starrform GetStarrById(int id)
+        public Starr GetStarrById(int id)
         {
             return repo.GetStarrById(id);
         }
-        public void UpdateStarr(Starrform sf)
+        public void UpdateStarr(Starr sf)
         {
             repo.UpdateStarr(sf);
         }

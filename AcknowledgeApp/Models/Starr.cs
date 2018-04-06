@@ -11,7 +11,7 @@ namespace Models
         Negative,
         VeryNegative
     }
-    public class Starrform 
+    public class Starr 
     {
         public int Id { get; set; }
         public String Name { get; set; }
@@ -26,7 +26,7 @@ namespace Models
         public String Coach { get; set; }
 
 
-        public Starrform(int id,String name, DateTime lastedit, string sit, string task, string act, string res, string refl, Emotions feel,String coach)
+        public Starr(int id,String name, DateTime lastedit, string sit, string task, string act, string res, string refl, Emotions feel,String coach)
         {
             this.Id = id;
             this.Name = name;
@@ -41,13 +41,13 @@ namespace Models
             this.Coach = coach;
         }
 
-        public Starrform()
+        public Starr()
         {
 
 
         }
 
-        public void CopyFrom(Starrform other)
+        public void CopyFrom(Starr other)
         {
             Id = other.Id;
             Name = other.Name;
