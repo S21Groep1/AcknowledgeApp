@@ -4,8 +4,16 @@ using System.Text;
 
 namespace Models
 {
-    public class Starrform
+    public enum Emotions
     {
+        Positive,
+        Neutral,
+        Negative
+    }
+    public class Starrform 
+    {
+        public int Id { get; set; }
+        public String Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime LastEdit { get; set; }
         public String Situation { get; set; }
@@ -13,10 +21,14 @@ namespace Models
         public String Action { get; set; }
         public String Result { get; set; }
         public String Reflection { get; set; }
-        public Emotion Feeling { get; set; }
+        public Emotions Feeling { get; set; }
+        public String Coach { get; set; }
 
-        public Starrform(DateTime lastedit, string sit, string task, string act, string res, string refl, Emotion feel)
+
+        public Starrform(int id,String name, DateTime lastedit, string sit, string task, string act, string res, string refl, Emotions feel,String coach)
         {
+            this.Id = id;
+            this.Name = name;
             this.StartDate = DateTime.Now;
             this.LastEdit = lastedit;
             this.Situation = sit;
@@ -25,6 +37,27 @@ namespace Models
             this.Result = res;
             this.Reflection = refl;
             this.Feeling = feel;
+            this.Coach = coach;
         }
+
+        public Starrform()
+        {
+
+
+        }
+
+        public void CopyFrom(Starrform other)
+        {
+            Id = other.Id;
+            Name = other.Name;
+            LastEdit = DateTime.Now;
+            Situation = other.Situation;
+            Task = other.Task;
+            Action = other.Task;
+            Result = other.Result;
+            Reflection = other.Reflection;
+            Coach = other.Coach;
+        }
+
     }
 }

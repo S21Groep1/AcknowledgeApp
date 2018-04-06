@@ -2,27 +2,26 @@
 using System.Collections.Generic;
 using System.Text;
 using Models;
-using DAL;
 
-
-namespace Logic
+namespace DAL
 {
-    public class Starr_Logic
+    public class StarrRepository
     {
-        private StarrRepository repo = new StarrRepository();
+        private readonly IStarrContext context = new StarrContext();
 
         public List<Starrform> GetAllStarrs()
         {
-            return repo.GetAllStarrs();
-        }
-        public Starrform GetStarrById(int id)
-        {
-            return repo.GetStarrById(id);
-        }
-        public void UpdateStarr(Starrform sf)
-        {
-            repo.UpdateStarr(sf);
+            return context.GetAllStarrs();
         }
 
+        public Starrform GetStarrById(int id)
+        {
+            return context.GetStarrById(id);
+        }
+
+        public void UpdateStarr(Starrform sf)
+        {
+            context.UpdateStarr(sf);
+        }
     }
 }
