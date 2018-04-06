@@ -10,5 +10,6 @@ namespace DAL
         List<Starr> GetAllStarrs();
         Starr GetStarrById(int id);
         void UpdateStarr(Starr sf);
+        void addStarr(Starr s);
     }
 }

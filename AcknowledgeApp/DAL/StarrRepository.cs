@@ -23,5 +23,10 @@ namespace DAL
         {
             context.UpdateStarr(sf);
         }
+
+        public void addStarr(Starr s)
+        {
+            context.addStarr(s);
+        }
     }
 }

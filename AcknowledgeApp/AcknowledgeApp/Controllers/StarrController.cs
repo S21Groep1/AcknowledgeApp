@@ -20,6 +20,13 @@ namespace AcknowledgeApp.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Index(Starr s)
+        {
+            logic.addStarr(s);
+            return RedirectToAction("StarrList");
+        }
+
         public IActionResult StarrList()
         {
             StarrListViewModel viewmodel = new StarrListViewModel(logic.GetAllStarrs());

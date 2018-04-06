@@ -24,5 +24,10 @@ namespace Logic
             repo.UpdateStarr(sf);
         }
 
+        public void addStarr(Starr s)
+        {
+            repo.addStarr(s);
+        }
+
     }
 }
