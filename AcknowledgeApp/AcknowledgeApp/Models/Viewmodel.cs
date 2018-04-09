@@ -23,7 +23,7 @@ namespace AcknowledgeApp.Models
         {
             get
             {
-                return actiepunt.StartDate();
+                return actiepunt.DeadlineActionpoint();
             }
         }
 

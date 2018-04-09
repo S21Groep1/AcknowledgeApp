@@ -27,15 +27,15 @@ namespace Models
 
         //date mm/dd/yy
         string[] dateformats = { "d" };
-        string startdatetime;
+        string deadlinedatetime;
         
-        public string DateTimetoString()
+        public string DeadlineActionpoint()
         {
             foreach(string datefrmts in dateformats)
             {
-                startdatetime = string.Format("{0}\n", StartDate.ToString(datefrmts));
+                deadlinedatetime = string.Format("{0}\n", Deadline.ToString(datefrmts));
             }
-            return startdatetime;
+            return deadlinedatetime;
         }
 
         public Actionpoint(DateTime deadline, string specific, string measurable, string assingnable, string realistic)
@@ -58,7 +58,7 @@ namespace Models
 
         public override string ToString()
         {
-            return Specific + ", " + Measurable + ", " + Assignable + ", " + Realistic + ", " + DateTimetoString();
+            return Specific + ", " + Measurable + ", " + Assignable + ", " + Realistic + ", " + DeadlineActionpoint();
         }
 
     }
