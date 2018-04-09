@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Rewrite.Internal.ApacheModRewrite;
 using Microsoft.AspNetCore.Rewrite.Internal.IISUrlRewrite;
 using Models;
 using Logic;
+using RotativaHQ.AspNetCore;
 
 namespace AcknowledgeApp.Controllers
 {
@@ -18,6 +19,13 @@ namespace AcknowledgeApp.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(Starr s)
+        {
+            logic.addStarr(s);
+            return RedirectToAction("StarrList");
         }
 
         public IActionResult StarrList()
@@ -44,6 +52,12 @@ namespace AcknowledgeApp.Controllers
         {
             logic.UpdateStarr(starr);
             return RedirectToAction("StarrList");
+        }
+
+        public IActionResult PrintStarr(int id)
+        {
+            var report = new ViewAsPdf("EditStarr");
+            return report;
         }
 
     }
