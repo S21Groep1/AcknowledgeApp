@@ -4,10 +4,8 @@
 @section Styles {
     <link href="@Url.Content("~/css/StarrPageStyle.css")" rel="stylesheet" type="text/css" />
 }
+<!-- <script src="~/js/StarrPageScript.js"></script>  -->
 
-@section Scripts {
-    <script src="~/js/StarrPageScript.js"></script>
-}
 
 @{
     ViewData["Title"] = "STARR";
@@ -24,39 +22,39 @@
                         <form method="post">
                             <div class="form-group">
                                 <label asp-for="Id"></label>
-                                <input asp-for="Id" class="form-control" />
+                                <input asp-for="Id" class="form-control" required="Required"/>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Name"></label>
-                                <input asp-for="Name" class="form-control" />
+                                <input asp-for="Name" class="form-control" required="Required"/>
                             </div>
                             <div class="form-group">
                                 <label asp-for="LastEdit"></label>
-                                <input asp-for="LastEdit.Date" class="form-control" />
+                                <input asp-for="LastEdit.Date" class="form-control" required="Required"/>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Coach"></label>
-                                <input asp-for="Coach" class="form-control" />
+                                <input asp-for="Coach" class="form-control" required="Required"/>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Situation"></label>
-                                <textarea asp-for="Situation" class="form-control"></textarea>
+                                <textarea asp-for="Situation" class="form-control" required="Required"></textarea>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Task"></label>
-                                <textarea asp-for="Task" class="form-control"></textarea>
+                                <textarea asp-for="Task" class="form-control" required="Required"></textarea>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Action"></label>
-                                <textarea asp-for="Action" class="form-control"></textarea>
+                                <textarea asp-for="Action" class="form-control" required="Required"></textarea>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Result"></label>
-                                <textarea asp-for="Result" class="form-control"></textarea>
+                                <textarea asp-for="Result" class="form-control" required="Required"></textarea>
                             </div>
                             <div class="form-group">
                                 <label asp-for="Reflection"></label>
-                                <textarea asp-for="Reflection" class="form-control"></textarea>
+                                <textarea asp-for="Reflection" class="form-control" required="Required"></textarea>
                             </div>
                             <hr>
                             <div id="smileys">

@@ -67,3 +67,7 @@
 .mtt:hover span {
     color: #c0392b;
 }
+
+textarea {
+    resize: none;
+}
