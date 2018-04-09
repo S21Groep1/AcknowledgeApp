@@ -10,6 +10,14 @@ namespace AcknowledgeApp.Models
     {
         Actionpoint actiepunt = new Actionpoint();
 
+        public string SMART_specific
+        {
+            set { actiepunt.Specific = value; }
+            get
+            {
+                return actiepunt.Specific;
+            }
+        }
 
         public string Actionpointdeadline
         {

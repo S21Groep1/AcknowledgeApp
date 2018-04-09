@@ -14,7 +14,7 @@
             <div class=" text-center">
                 <h1 style="color: #0082CA">Actionpoints</h1>
                 <div class="main-login main-center" style="max-width: 800px">
-                    <form class="" method="post" action="#">
+                    <form asp-controller="Action" asp-action="Index" method="post">
                         <div class="form-group">
                             <label for="sel1">Select Softskill:</label>
                             <select class="form-control" id="Skill">
@@ -36,10 +36,10 @@
                         <div class="form-group">
                             <label for="name" class="cols-sm-2 control-label">Specifiek</label>
                             <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon" data-toggle="modal" data-target="#specifiekModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
-                                    <textarea rows="6" type="text" class="form-control" name="Specifiek" id="Specifiek"></textarea>
-                                </div>
+                                 <div class="input-group">
+                                      <span class="input-group-addon" data-toggle="modal" data-target="#specifiekModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
+                                      <textarea rows="6" type="text" class="form-control" name="Specifiek" id="Specifiek"></textarea>
+                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
