@@ -15,7 +15,8 @@ namespace DAL
             {
                 var x = Emotions.Positive;
                 var x2 = Emotions.Negative;
-                var x3 = Emotions.Neutral;
+                var x3 = Emotions.VeryPositive;
+                var x4 = Emotions.VeryNegative;
 
                 int starrId = 1;
 

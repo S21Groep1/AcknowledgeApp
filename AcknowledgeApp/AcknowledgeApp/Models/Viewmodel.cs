@@ -23,7 +23,8 @@ namespace AcknowledgeApp.Models
         {
             get
             {
-                return actiepunt.StartDate();
+               // return actiepunt.StartDate();
+                return null;
             }
         }
 
