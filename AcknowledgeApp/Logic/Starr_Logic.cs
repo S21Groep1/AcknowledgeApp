@@ -26,6 +26,8 @@ namespace Logic
 
         public void addStarr(Starr s)
         {
+            s.LastEdit = DateTime.Now;
+            s.StartDate = DateTime.Now;
             repo.addStarr(s);
         }
 
