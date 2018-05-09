@@ -18,9 +18,8 @@ namespace AcknowledgeApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Actionpoint actionpoint)
+        public IActionResult AddActionpoint(Actionpoint actionpoint)
         {
-
             return View();
         }
     }

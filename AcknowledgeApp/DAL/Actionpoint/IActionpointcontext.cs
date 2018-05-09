@@ -8,5 +8,7 @@ namespace DAL
     interface IActionpointcontext
     {
         List<Actionpoint> GetActionpoints();
+
+        void AddActionpoint(Actionpoint actionpoint);
     }
 }

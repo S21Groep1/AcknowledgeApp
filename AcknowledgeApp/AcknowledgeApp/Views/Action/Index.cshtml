@@ -1,11 +1,13 @@
-﻿@model AcknowledgeApp.Models.Viewmodel
-
+﻿@using Models
+@using AcknowledgeApp
+@model Actionpoint
 @section Styles {
     <link href="@Url.Content("~/css/ActiepuntenStyle.css")" rel="stylesheet" type="text/css" />
 }
 
 @{
     ViewData["Title"] = "Action";
+    Viewmodel viewmodel = new Viewmodel();
 }
 
 <div class="container">
@@ -18,7 +20,7 @@
                         <div class="form-group">
                             <label for="sel1">Select Softskill:</label>
                             <select class="form-control" id="Skill">
-                                @foreach (string softskill in Model.Softskilllist())
+                                @foreach (string softskill in viewmodel.Softskilllist())
                                 {
                                     <option>@softskill</option>
                                 }
@@ -38,6 +40,7 @@
                             <div class="cols-sm-10">
                                  <div class="input-group">
                                       <span class="input-group-addon" data-toggle="modal" data-target="#specifiekModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
+                                      
                                       <textarea rows="6" type="text" class="form-control" name="Specifiek" id="Specifiek"></textarea>
                                  </div>
                             </div>

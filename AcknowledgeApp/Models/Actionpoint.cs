@@ -49,13 +49,6 @@ namespace Models
             
         }
 
-        public Actionpoint()
-        {
-
-        }
-
-
-
         public override string ToString()
         {
             return Specific + ", " + Measurable + ", " + Assignable + ", " + Realistic + ", " + DeadlineActionpoint();

@@ -8,28 +8,6 @@ namespace AcknowledgeApp.Models
 {
     public class Viewmodel
     {
-        Actionpoint actiepunt = new Actionpoint();
-
-        public string SMART_specific
-        {
-            set { actiepunt.Specific = value; }
-            get
-            {
-                return actiepunt.Specific;
-            }
-        }
-
-        public string Actionpointdeadline
-        {
-            get
-            {
-                return actiepunt.DeadlineActionpoint();
-            }
-        }
-
-
-
-
         public List<string> Softskilllist()
         {
             List<string> softskills = new List<string>();
@@ -51,7 +29,12 @@ namespace AcknowledgeApp.Models
             return softskills;
         }
 
-        
+
+
+
+
+
+
 
     }
 }
