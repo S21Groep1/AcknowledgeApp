@@ -44,9 +44,36 @@ namespace AcknowledgeApp.Controllers
                 return NotFound(id);
             }
 
-
             return View(sf);
         }
+
+        public IActionResult AddActionPoint(int id)
+        {
+            Starr sf = logic.GetStarrById(id);
+            Actionpoint p = new Actionpoint(DateTime.Now, "Improve writing", "test", "test", "test");
+            Actionpoint p1 = new Actionpoint(DateTime.Now, "Improve reading", "test", "test", "test");
+            Actionpoint p2 = new Actionpoint(DateTime.Now, "Improve listening", "test", "test", "test");
+            Actionpoint p3 = new Actionpoint(DateTime.Now, "Improve teamwork", "test", "test", "test");
+            Actionpoint p4 = new Actionpoint(DateTime.Now, "Improve testing", "test", "test", "test");
+
+            List<Actionpoint> points = new List<Actionpoint>();
+            points.Add(p);
+            points.Add(p1);
+            points.Add(p2);
+            points.Add(p3);
+            points.Add(p4);
+
+            ActionPointStarrViewModel viewmodel = new ActionPointStarrViewModel(points, sf);
+
+
+            if (sf == null)
+            {
+                return NotFound(id);
+            }
+
+            return View(viewmodel);
+        }
+
         [HttpPost]
         public IActionResult EditStarr(Starr starr)
         {
