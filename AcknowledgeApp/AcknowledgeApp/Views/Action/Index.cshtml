@@ -1,6 +1,6 @@
 ﻿@using Models
 @using AcknowledgeApp
-@model Actionpoint
+@model Viewmodel
 @section Styles {
     <link href="@Url.Content("~/css/ActiepuntenStyle.css")" rel="stylesheet" type="text/css" />
 }
@@ -16,7 +16,7 @@
             <div class=" text-center">
                 <h1 style="color: #0082CA">Actionpoints</h1>
                 <div class="main-login main-center" style="max-width: 800px">
-                    <form asp-controller="Action" asp-action="Index" method="post">
+                    <form method="post">
                         <div class="form-group">
                             <label for="sel1">Select Softskill:</label>
                             <select class="form-control" id="Skill">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                         <div class="form-group ">
-                            <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Finish</a>
+                            <button type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button">Finish</button>
                         </div>
                     </form>
                 </div>

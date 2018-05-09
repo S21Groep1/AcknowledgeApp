@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AcknowledgeApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Logic;
 using Models;
 
 
@@ -11,6 +12,8 @@ namespace AcknowledgeApp.Controllers
 {
     public class ActionController : Controller
     {
+        private Actionpoint_Logic logic = new Actionpoint_Logic();
+
         public IActionResult Index(Viewmodel viewmodel)
         {
             viewmodel.Softskilllist();
@@ -20,7 +23,8 @@ namespace AcknowledgeApp.Controllers
         [HttpPost]
         public IActionResult AddActionpoint(Actionpoint actionpoint)
         {
-            return View();
+            logic.AddActionpoint(actionpoint);
+            return RedirectToAction("Index");
         }
     }
 }
