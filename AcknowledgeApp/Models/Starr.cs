@@ -24,7 +24,7 @@ namespace Models
         public String Reflection { get; set; }
         public Emotions Feeling { get; set; }
         public String Coach { get; set; }
-
+        public List<Actionpoint> Actionpoints = new List<Actionpoint>();
 
         public Starr(int id,String name, DateTime lastedit, string sit, string task, string act, string res, string refl, Emotions feel,String coach)
         {
