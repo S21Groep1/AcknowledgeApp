@@ -1,18 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Logic;
 using Microsoft.AspNetCore.Mvc;
-using AcknowledgeApp.Models;
+using Models;
+using System;
 
 namespace AcknowledgeApp.Controllers
 {
     public class HomeController : Controller
     {
+        AccountLogic logic = new AccountLogic(LogicTypes.TestLogic);
+
+        [TempData]
+        public string ErrorMessage { get; set; }
+
         public IActionResult Index()
         {
+            ViewData["Error"] = ErrorMessage;
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(string email, string password)
+        {
+            try
+            {
+                logic.Login(new Account() { Email = email, Password = password });
+                return RedirectToAction("Homepage", "Home");
+            }
+            catch(Exception ex)
+            {
+                ErrorMessage = ex.Message;
+                return RedirectToAction("Index", "Home");
+            }
+            
         }
 
         // Returns .../Home/Homepage

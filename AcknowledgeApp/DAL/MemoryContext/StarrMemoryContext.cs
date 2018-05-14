@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Models;
 
 namespace DAL
 {
-    class StarrContext : IStarrContext
+    public class StarrMemoryContext : IStarrContext
     {
         private static List<Starr> starrs = new List<Starr>();
 
-        public StarrContext()
+        public StarrMemoryContext()
         {
             if (starrs.Count == 0)
             {
@@ -28,35 +27,29 @@ namespace DAL
                 starrs.Add(new Starr(9, "Writing 3", DateTime.Now, "test8", "test8", "test8", "test8", "test8", x3, "Wim"));
                 starrs.Add(new Starr(10, "Presentation 2", DateTime.Now, "test9", "test9", "test9", "test9", "test9", x3, "Anne"));
             }
-              
         }
 
-        public List<Starr> GetAllStarrs()
-        {
-            return starrs;
-        }
+        public IEnumerable<Starr> GetAllStarrs() => starrs;
 
         public Starr GetStarrById(int id)
         {
-            foreach(Starr s in starrs)
+            Starr foundStarr = starrs.Find(s => s.Id == id);
+            if (foundStarr != null)
             {
-                if (s.Id == id)
-                {
-                    return s;
-                }
+                return foundStarr;
+            } else
+            {
+                throw new Exception("There is no starr with that ID!");
             }
-
-            return null;
         }
 
-        public void UpdateStarr(Starr sf)
+        public void UpdateStarr(Starr starr)
         {
-            Starr toUpdate = GetStarrById(sf.Id);
+            Starr toUpdate = GetStarrById(starr.Id);
             if (toUpdate != null)
             {
-                toUpdate.CopyFrom(sf);
+                toUpdate.CopyFrom(starr);
             }
-
         }
     }
 }

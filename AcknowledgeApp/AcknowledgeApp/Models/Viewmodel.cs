@@ -10,7 +10,6 @@ namespace AcknowledgeApp.Models
     {
         Actionpoint actiepunt = new Actionpoint();
 
-
         public string Actionpointdeadline
         {
             get
@@ -18,9 +17,6 @@ namespace AcknowledgeApp.Models
                 return actiepunt.StartDate();
             }
         }
-
-
-
 
         public List<string> Softskilllist()
         {
@@ -42,8 +38,5 @@ namespace AcknowledgeApp.Models
             softskills.Add("Plannen");
             return softskills;
         }
-
-        
-
     }
 }

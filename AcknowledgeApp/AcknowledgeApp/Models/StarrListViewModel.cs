@@ -14,6 +14,5 @@ namespace AcknowledgeApp.Models
         {
             this.Starrs = starrs;
         }
-
     }
 }
