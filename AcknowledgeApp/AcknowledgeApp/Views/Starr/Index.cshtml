@@ -1,0 +1,112 @@
+﻿@section Styles {
+    <link href="@Url.Content("~/css/StarrPageStyle.css")" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts {
+    <script src="~/js/StarrPageScript.js"></script>
+}
+
+@{
+    ViewData["Title"] = "STARR";
+}
+
+<div class="container">
+    <div class="container-fluid" style="background-color: white; border-radius: 25px;">
+        <div class="row content">
+            <div class="text-center">
+                <h1 style="color: #0082CA">STARR</h1>
+                <hr>
+                <h2>Actionpoint 1</h2>
+                <div class="formwrapper">
+                    <div class="form-group">
+                        <h4>Situatie</h4>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+
+                        <h4>Taak</h4>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+
+                        <h4>Actie</h4>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+
+                        <h4>Resultaat</h4>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+
+                        <h4>Reflectie</h4>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <hr>
+                        <form id="smileys">
+                            <input type="radio" name="smiley" value="sad" class="sad">
+                            <input type="radio" name="smiley" value="neutral" class="neutral">
+                            <input type="radio" name="smiley" value="happy" class="happy" checked="checked">
+
+                        </form>
+
+                        <a class="btn btn-success" data-toggle="modal" href="#coachModal">Add Coach</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade text-center" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Actionpoints</h4>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 1</a>
+                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 2</a>
+                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 3</a>
+                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 4</a>
+                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 5</a>
+                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 6</a>
+                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 7</a>
+                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 8</a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade text-center" id="coachModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Coaches</h4>
+            </div>
+            <div class="modal-body">
+                <select multiple class="form-control" id="sel2">
+                    <option>Jan</option>
+                    <option>Henk</option>
+                    <option>Piet</option>
+                    <option>Linda</option>
+                    <option>Marianne</option>
+                    <option>Thomas</option>
+                    <option>Gerard</option>
+                    <option>Lia</option>
+                </select>
+                <hr>
+                <a class="btn btn-success" href='@Url.Action("Index", "Home")'>Finish</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div style="height: 30px;"></div>

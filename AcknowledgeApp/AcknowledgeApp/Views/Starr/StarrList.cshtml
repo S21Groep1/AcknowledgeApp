@@ -1,0 +1,49 @@
+﻿@using  Models
+@model StarrListViewModel
+
+@section Styles {
+    <link href="@Url.Content("~/css/StarrListStyle.css")" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts {
+    <script src="~/js/StarrListScript.js"></script>
+}
+
+@{
+    ViewData["Title"] = "StarrList";
+}
+
+<div class="container">
+    <div class="container-fluid" style="background-color: white; border-radius: 25px;">
+        <div class="row content">
+            <div class=" text-center">
+                <h1 style="color: #0082CA">STARR List</h1>
+                <h4 class="text-center"> All STARR forms</h4>
+                <hr>
+                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+                <br>
+                <table id="myTable">
+                    <tr class="header">
+                        <th style="width:40%;" onclick="sortTable(0)">Title</th>
+                        <th style="width:25%;" onclick="sortTable(1)">Date</th>
+                        <th style="width:25%;" onclick="sortTable(2)">Coach</th>
+                        <th style="width:10%;"></th>
+                    </tr>
+                    @foreach (var starrform in Model.Starrs)
+                    {
+                        <tr>
+                            <td>@starrform.Name</td>
+                            <td>@starrform.LastEdit</td>
+                            <td>@starrform.Coach</td>
+                            <td><a asp-action="EditStarr" asp-route-id="@starrform.Id">Edit</a></td>
+                            <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
+                        </tr>
+                    }
+                </table>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="height: 30px;"></div>
+

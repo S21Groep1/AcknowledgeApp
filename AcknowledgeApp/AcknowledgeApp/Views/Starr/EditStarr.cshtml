@@ -1,0 +1,59 @@
+﻿﻿@using Models
+@model Models.Starr
+
+
+@{
+    ViewData["Title"] = "EditStarr";
+}
+
+
+<div class="row" id="TestIDdirk">
+    <div class="col-sm-4">
+        <h2>Edit Platform</h2>
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Id"></label>
+                <input asp-for="Id" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate"></label>
+                <input asp-for="StartDate" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="LastEdit"></label>
+                <input asp-for="LastEdit" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="Coach"></label>
+                <input asp-for="Coach" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Situation"></label>
+                <textarea asp-for="Situation" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Task"></label>
+                <textarea asp-for="Task" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Action"></label>
+                <textarea asp-for="Action" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Result"></label>
+                <textarea asp-for="Result" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reflection"></label>
+                <textarea asp-for="Reflection" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+</div>
+
+

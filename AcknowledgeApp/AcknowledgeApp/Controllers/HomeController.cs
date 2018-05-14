@@ -15,23 +15,11 @@ namespace AcknowledgeApp.Controllers
             return View();
         }
 
-        public IActionResult About()
+        // Returns .../Home/Homepage
+        public ActionResult Homepage()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            //property's email and wachtwoord are setted
             return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
