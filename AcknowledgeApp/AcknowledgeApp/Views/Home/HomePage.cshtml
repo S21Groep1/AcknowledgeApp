@@ -1,74 +1,61 @@
-﻿
-@{
-    Layout = null;
+﻿@section Styles {
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/HomePageStyle.css")" rel="stylesheet" type="text/css" />
 }
 
-<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Homepage";
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/HomePageStyle.css" />
-    <title>HomePage</title>
-</head>
-<body>
+<!-- All the html content that must be the body -->
+<div class="wrapper">
+    <div class="MastHead" data-role="header" data-position="fixed" data-tap-toggle="false" style="background-color: #0082CA ">
+        <div class="HeaderLogo"><img src="~/images/header-logo.png"></div>
+    </div>
+</div>
 
-    <!-- All the html content that must be the body -->
-    <div class="wrapper">
-        <div class="MastHead" data-role="header" data-position="fixed" data-tap-toggle="false" style="background-color: #0082CA ">
-            <div class="HeaderLogo"><img src="~/images/header-logo.png"></div>
+<div style="height: 30px;"></div>
+<div class="container-fluid text-center bg-grey">
+    <div class="row text-center">
+        <div class="col-sm-4">
+            <a asp-area="" asp-controller="Action" asp-action="Index">
+                <div class="thumbnail">
+                    <span class="glyphicon glyphicon-flash logo-small"></span>
+                    <h4><strong>Actionpoints</strong></h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a asp-area="" asp-controller="Starr" asp-action="Index">
+                <div class="thumbnail">
+                    <span class="glyphicon glyphicon-file logo-small"></span>
+                    <h4><strong>New STARR</strong></h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-4">
+            <a asp-area="" asp-controller="Starr" asp-action="StarrList">
+                <div class="thumbnail">
+                    <span class="glyphicon glyphicon-th-list logo-small"></span>
+                    <h4><strong>STARR List</strong></h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a asp-area="" asp-controller="Account" asp-action="Index">
+                <div class="thumbnail">
+                    <span class="glyphicon glyphicon-user logo-small"></span>
+                    <h4><strong>Account</strong></h4>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <a asp-area="" asp-controller="Home" asp-action="Index">
+                <div class="thumbnail">
+                    <span class="glyphicon glyphicon-log-out logo-small"></span>
+                    <h4><strong>Logout</strong></h4>
+                </div>
+            </a>
         </div>
     </div>
-
-    <div style="height: 30px;"></div>
-    <div class="container-fluid text-center bg-grey">
-        <div class="row text-center">
-            <div class="col-sm-4">
-                <a asp-area="" asp-controller="Action" asp-action="Index">
-                    <div class="thumbnail">
-                        <span class="glyphicon glyphicon-flash logo-small"></span>
-                        <h4><strong>Actionpoints</strong></h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4"> 
-                <a asp-area="" asp-controller="Starr" asp-action="Index">
-                    <div class="thumbnail">
-                        <span class="glyphicon glyphicon-file logo-small"></span>
-                        <h4><strong>New STARR</strong></h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-4">
-                <a asp-area="" asp-controller="Starr" asp-action="StarrList">
-                    <div class="thumbnail">
-                        <span class="glyphicon glyphicon-th-list logo-small"></span>
-                        <h4><strong>STARR List</strong></h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6">
-                <a asp-area="" asp-controller="Account" asp-action="Index">
-                    <div class="thumbnail">
-                        <span class="glyphicon glyphicon-user logo-small"></span>
-                        <h4><strong>Account</strong></h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-sm-6">
-                <a asp-area="" asp-controller="Home" asp-action="Index">
-                    <div class="thumbnail">
-                        <span class="glyphicon glyphicon-log-out logo-small"></span>
-                        <h4><strong>Logout</strong></h4>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div style="height: 30px;"></div>
-</body>
-</html>
+</div>

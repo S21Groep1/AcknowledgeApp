@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Models
 {
     public class Actionpoint
     {
-        
         private DateTime startDate = DateTime.Now;
         private bool iscomplete;
         private string specific;
@@ -15,8 +12,6 @@ namespace Models
         private string realistic;
         private DateTime deadline;
 
-        
-        
         public bool Iscomplete { get => iscomplete; set => iscomplete = value; }
         public string Specific { get => specific; set => specific = value; }
         public string Measurable { get => measurable; set => measurable = value; }
@@ -36,12 +31,9 @@ namespace Models
             return datetime;
         }
 
-
-
         public override string ToString()
         {
             return Specific + ", " + Measurable + ", " + Assignable + ", " + Realistic + ", " + StartDate();
         }
-
     }
 }

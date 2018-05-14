@@ -13,7 +13,7 @@ namespace AcknowledgeApp.Controllers
 {
     public class StarrController : Controller
     {
-        private Starr_Logic logic = new Starr_Logic();
+        private StarrLogic logic = new StarrLogic(LogicTypes.TestLogic);
 
         public IActionResult Index()
         {
@@ -35,10 +35,9 @@ namespace AcknowledgeApp.Controllers
             {
                 return NotFound(id);
             }
-
-
             return View(sf);
         }
+
         [HttpPost]
         public IActionResult EditStarr(Starr starr)
         {
