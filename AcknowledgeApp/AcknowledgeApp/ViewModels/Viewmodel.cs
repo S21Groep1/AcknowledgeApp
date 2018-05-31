@@ -19,9 +19,6 @@ namespace AcknowledgeApp.Models
             }
         }
 
-
-
-
         public List<string> Softskilllist()
         {
             List<string> softskills = new List<string>();

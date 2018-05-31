@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Logic
+namespace DAL
 {
-    interface IAcknowledge_logic
+    public enum StorageType
     {
-
+        Memory, Database
     }
 }

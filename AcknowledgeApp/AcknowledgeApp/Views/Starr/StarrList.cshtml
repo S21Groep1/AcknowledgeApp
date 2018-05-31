@@ -1,5 +1,5 @@
-﻿@using  Models
-@model StarrListViewModel
+﻿@using Models;
+@model IEnumerable<Starr>
 
 @section Styles {
     <link href="@Url.Content("~/css/StarrListStyle.css")" rel="stylesheet" type="text/css" />
@@ -29,13 +29,13 @@
                         <th style="width:25%;" onclick="sortTable(2)">Coach</th>
                         <th style="width:10%;"></th>
                     </tr>
-                    @foreach (var starrform in Model.Starrs)
+                    @foreach (var starr in Model)
                     {
                         <tr>
-                            <td>@starrform.Name</td>
-                            <td>@starrform.LastEdit</td>
-                            <td>@starrform.Coach</td>
-                            <td><a asp-action="EditStarr" asp-route-id="@starrform.Id">Edit</a></td>
+                            <td>@starr.Name</td>
+                            <td>@starr.LastEdit</td>
+                            <td>@starr.Coach</td>
+                            <td><a href="@Url.Action("EditStarr", "Starr", new { id = starr.Id})">Edit</a></td>
                             <td><a href="#"><span class="glyphicon glyphicon-print"></span></a></td>
                         </tr>
                     }

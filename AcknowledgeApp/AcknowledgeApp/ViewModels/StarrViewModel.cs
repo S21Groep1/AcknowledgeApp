@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+using Models;
 
-namespace Models
+namespace AcknowledgeApp.ViewModels
 {
-    public class Starr 
+    public class StarrViewModel
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Name is required.")]
+        [Display(Name = "STARR Name")]
         public String Name { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime LastEdit { get; set; }
@@ -17,25 +22,5 @@ namespace Models
         public String Reflection { get; set; }
         public Emotions Feeling { get; set; }
         public String Coach { get; set; }
-
-        public Starr()
-        {
-
-
-        }
-
-        public void CopyFrom(Starr other)
-        {
-            Id = other.Id;
-            Name = other.Name;
-            LastEdit = DateTime.Now;
-            Situation = other.Situation;
-            Task = other.Task;
-            Action = other.Task;
-            Result = other.Result;
-            Reflection = other.Reflection;
-            Coach = other.Coach;
-        }
-
     }
 }
