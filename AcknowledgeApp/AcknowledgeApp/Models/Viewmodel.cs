@@ -8,6 +8,13 @@ namespace AcknowledgeApp.Models
 {
     public class Viewmodel
     {
+        
+        public Actionpoint Actionpoint { get; set; }
+
+        public Viewmodel()
+        {
+
+        }
         public List<string> Softskilllist()
         {
             List<string> softskills = new List<string>();

@@ -13,6 +13,7 @@ namespace Models
         private string measurable;
         private string assignable;
         private string realistic;
+        private string time_related;
         private DateTime deadline;
 
         
@@ -24,6 +25,7 @@ namespace Models
         public string Realistic { get => realistic; set => realistic = value; }
         public DateTime StartDate { get => startDate; set => startDate = value; }
         public DateTime Deadline { get => deadline; set => deadline = value; }
+        public string Time_related { get => time_related; set => time_related = value; }
 
         //date mm/dd/yy
         string[] dateformats = { "d" };
@@ -37,8 +39,13 @@ namespace Models
             }
             return deadlinedatetime;
         }
+        
+        public Actionpoint()
+        {
 
-        public Actionpoint(DateTime deadline, string specific, string measurable, string assingnable, string realistic)
+        }
+
+        public Actionpoint(DateTime deadline, string specific, string measurable, string assingnable, string realistic, string time_related)
         {
             this.StartDate = DateTime.Now;
             this.Deadline = deadline;
@@ -46,6 +53,8 @@ namespace Models
             this.Measurable = measurable;
             this.Assignable = assingnable;
             this.Realistic = realistic;
+            this.Time_related = time_related;
+            
             
         }
 

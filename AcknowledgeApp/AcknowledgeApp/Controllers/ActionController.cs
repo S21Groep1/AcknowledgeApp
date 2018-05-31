@@ -21,9 +21,9 @@ namespace AcknowledgeApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddActionpoint(Actionpoint actionpoint)
+        public IActionResult AddActionpoint(Actionpoint a)
         {
-            logic.AddActionpoint(actionpoint);
+            logic.AddActionpoint(a);
             return RedirectToAction("Index");
         }
     }
