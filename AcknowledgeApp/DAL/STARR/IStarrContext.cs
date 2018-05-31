@@ -5,10 +5,11 @@ using Models;
 
 namespace DAL
 {
-    interface IStarrContext
+    public interface IStarrContext
     {
-        List<Starr> GetAllStarrs();
-        Starr GetStarrById(int id);
+        void Create(Starr sf);
+        IEnumerable<Starr> GetAll();
+        Starr Get(int id);
         void UpdateStarr(Starr sf);
         void addStarr(Starr s);
     }
