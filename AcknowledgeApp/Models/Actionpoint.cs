@@ -45,10 +45,10 @@ namespace Models
 
         }
 
-        public Actionpoint(DateTime deadline, string specific, string measurable, string assingnable, string realistic, string time_related)
+        public Actionpoint(/*DateTime deadline, */string specific, string measurable, string assingnable, string realistic, string time_related)
         {
-            this.StartDate = DateTime.Now;
-            this.Deadline = deadline;
+            //this.StartDate = DateTime.Now;
+            //this.Deadline = deadline;
             this.Specific = specific;
             this.Measurable = measurable;
             this.Assignable = assingnable;
