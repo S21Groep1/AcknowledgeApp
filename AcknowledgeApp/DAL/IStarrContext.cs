@@ -11,5 +11,6 @@ namespace DAL
         IEnumerable<Starr> GetAll();
         Starr Get(int id);
         void UpdateStarr(Starr sf);
+        void addStarr(Starr s);
     }
 }

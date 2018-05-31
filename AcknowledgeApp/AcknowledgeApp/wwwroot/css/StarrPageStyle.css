@@ -10,7 +10,7 @@
     margin-right: 20px;
 }
 
-form#smileys input[type="radio"] {
+#smileys input[type="radio"] {
     -webkit-appearance: none;
     width: 90px;
     height: 90px;
@@ -25,26 +25,25 @@ form#smileys input[type="radio"] {
     transition: all .2s ease;
 }
 
-form#smileys input[type="radio"]:hover, form#smileys input[type="radio"]:checked {
+#smileys input[type="radio"]:hover, form#smileys input[type="radio"]:checked {
     -webkit-filter: grayscale(0);
     filter: grayscale(0);
 }
-
-form#smileys input[type="radio"]:focus {
+#smileys input[type="radio"]:focus {
     outline: 0;
 }
 
-form#smileys input[type="radio"].happy {
+#smileys input[type="radio"].happy {
     background: url("https://res.cloudinary.com/turdlife/image/upload/v1492864443/happy_ampvnc.svg") center;
     background-size: cover;
 }
 
-form#smileys input[type="radio"].neutral {
+#smileys input[type="radio"].neutral {
     background: url("https://res.cloudinary.com/turdlife/image/upload/v1492864443/neutral_t3q8hz.svg") center;
     background-size: cover;
 }
 
-form#smileys input[type="radio"].sad {
+#smileys input[type="radio"].sad {
     background: url("https://res.cloudinary.com/turdlife/image/upload/v1492864443/sad_bj1tuj.svg") center;
     background-size: cover;
 }
@@ -67,4 +66,8 @@ form#smileys input[type="radio"].sad {
 
 .mtt:hover span {
     color: #c0392b;
+}
+
+textarea {
+    resize: none;
 }

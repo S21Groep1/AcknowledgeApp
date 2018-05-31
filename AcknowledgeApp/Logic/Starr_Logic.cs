@@ -9,20 +9,27 @@ namespace Logic
 {
     public class Starr_Logic
     {
-        private IStarrContext context;
+        private StarrRepository repo = new StarrRepository();
 
-        public Starr_Logic(StorageType storageType)
+        public List<Starr> GetAllStarrs()
         {
-            switch (storageType)
-            {
-                //case StorageType.Database: context = new StarrDBContext(); break;
-                case StorageType.Memory: context = new StarrMemoryContext(); break;
-            }
+            return repo.GetAllStarrs();
+        }
+        public Starr GetStarrById(int id)
+        {
+            return repo.GetStarrById(id);
+        }
+        public void UpdateStarr(Starr sf)
+        {
+            repo.UpdateStarr(sf);
         }
 
-        public void Create(Starr starr) => context.Create(starr);
-        public IEnumerable<Starr> GetAll() => context.GetAll();
-        public Starr Get(int id) => context.Get(id);
-        public void UpdateStarr(Starr sf) => context.UpdateStarr(sf);
+        public void addStarr(Starr s)
+        {
+            s.LastEdit = DateTime.Now;
+            s.StartDate = DateTime.Now;
+            repo.addStarr(s);
+        }
+
     }
 }

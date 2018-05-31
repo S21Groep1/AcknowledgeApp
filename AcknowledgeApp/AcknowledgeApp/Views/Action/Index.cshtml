@@ -1,11 +1,13 @@
-﻿@model AcknowledgeApp.Models.Viewmodel
-
+﻿@using Models
+@using AcknowledgeApp
+@model Viewmodel
 @section Styles {
     <link href="@Url.Content("~/css/ActiepuntenStyle.css")" rel="stylesheet" type="text/css" />
 }
 
 @{
     ViewData["Title"] = "Action";
+    Viewmodel viewmodel = new Viewmodel();
 }
 
 <div class="container">
@@ -14,11 +16,11 @@
             <div class=" text-center">
                 <h1 style="color: #0082CA">Actionpoints</h1>
                 <div class="main-login main-center" style="max-width: 800px">
-                    <form class="" method="post" action="#">
+                    <form method="post">
                         <div class="form-group">
                             <label for="sel1">Select Softskill:</label>
                             <select class="form-control" id="Skill">
-                                @foreach (string softskill in Model.Softskilllist())
+                                @foreach (string softskill in viewmodel.Softskilllist())
                                 {
                                     <option>@softskill</option>
                                 }
@@ -36,10 +38,11 @@
                         <div class="form-group">
                             <label for="name" class="cols-sm-2 control-label">Specifiek</label>
                             <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon" data-toggle="modal" data-target="#specifiekModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
-                                    <textarea rows="6" type="text" class="form-control" name="Specifiek" id="Specifiek"></textarea>
-                                </div>
+                                 <div class="input-group">
+                                      <span class="input-group-addon" data-toggle="modal" data-target="#specifiekModal"><i class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></i></span>
+                                      
+                                      <textarea rows="6" type="text" class="form-control" name="Specifiek" id="Specifiek"></textarea>
+                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -79,7 +82,7 @@
                             </div>
                         </div>
                         <div class="form-group ">
-                            <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Finish</a>
+                            <button type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button">Finish</button>
                         </div>
                     </form>
                 </div>

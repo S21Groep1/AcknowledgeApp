@@ -8,53 +8,83 @@ using Microsoft.AspNetCore.Rewrite.Internal.ApacheModRewrite;
 using Microsoft.AspNetCore.Rewrite.Internal.IISUrlRewrite;
 using Models;
 using Logic;
-using AcknowledgeApp.ViewModels;
-using DAL;
+using RotativaHQ.AspNetCore;
 
 namespace AcknowledgeApp.Controllers
 {
     public class StarrController : Controller
     {
-        private Starr_Logic logic = new Starr_Logic(StorageType.Memory);
+        private Starr_Logic logic = new Starr_Logic();
 
-        public IActionResult AddStarr()
+        public IActionResult Index()
         {
             return View();
         }
+
         [HttpPost]
-        public IActionResult AddStarr(StarrViewModel vStarr)
+        public IActionResult Index(Starr s)
         {
-            if (ModelState.IsValid)
-            {
-                logic.Create(new Starr() { Name = vStarr.Name, Situation = vStarr.Situation, Task = vStarr.Task, Action = vStarr.Action, Result = vStarr.Result, Reflection = vStarr.Reflection, Feeling = vStarr.Feeling, Coach = vStarr.Coach, StartDate = DateTime.Now, LastEdit = DateTime.Now });
-                return RedirectToAction("StarrList");
-            }
-            return View(vStarr);
+            logic.addStarr(s);
+            return RedirectToAction("StarrList");
         }
 
         public IActionResult StarrList()
         {
-            return View(logic.GetAll());
+            StarrListViewModel viewmodel = new StarrListViewModel(logic.GetAllStarrs());
+
+            return View(viewmodel);
         }
 
         public IActionResult EditStarr(int id)
         {
-            if(id == 0)
+            Starr sf = logic.GetStarrById(id);
+
+            if (sf == null)
             {
-                return View();
+                return NotFound(id);
             }
-            Starr sf = logic.Get(id);
+
             return View(sf);
         }
-        [HttpPost]
-        public IActionResult EditStarr(StarrViewModel vStarr)
+
+        public IActionResult AddActionPoint(int id)
         {
-            if (ModelState.IsValid)
+            Starr sf = logic.GetStarrById(id);
+            Actionpoint p = new Actionpoint(DateTime.Now, "Improve writing", "test", "test", "test");
+            Actionpoint p1 = new Actionpoint(DateTime.Now, "Improve reading", "test", "test", "test");
+            Actionpoint p2 = new Actionpoint(DateTime.Now, "Improve listening", "test", "test", "test");
+            Actionpoint p3 = new Actionpoint(DateTime.Now, "Improve teamwork", "test", "test", "test");
+            Actionpoint p4 = new Actionpoint(DateTime.Now, "Improve testing", "test", "test", "test");
+
+            List<Actionpoint> points = new List<Actionpoint>();
+            points.Add(p);
+            points.Add(p1);
+            points.Add(p2);
+            points.Add(p3);
+            points.Add(p4);
+
+            ActionPointStarrViewModel viewmodel = new ActionPointStarrViewModel(points, sf);
+
+
+            if (sf == null)
             {
-                logic.UpdateStarr(new Starr() { Id = vStarr.Id, Name = vStarr.Name, Situation = vStarr.Situation, Task = vStarr.Task, Action = vStarr.Action, Result = vStarr.Result, Reflection = vStarr.Reflection, Feeling = vStarr.Feeling, Coach = vStarr.Coach, LastEdit = DateTime.Now });
-                return RedirectToAction("StarrList");
+                return NotFound(id);
             }
-            return View();
+
+            return View(viewmodel);
+        }
+
+        [HttpPost]
+        public IActionResult EditStarr(Starr starr)
+        {
+            logic.UpdateStarr(starr);
+            return RedirectToAction("StarrList");
+        }
+
+        public IActionResult PrintStarr(int id)
+        {
+            var report = new ViewAsPdf("EditStarr");
+            return report;
         }
 
     }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RotativaHQ.AspNetCore;
 
 namespace AcknowledgeApp
 {
@@ -38,6 +39,9 @@ namespace AcknowledgeApp
             }
 
             app.UseStaticFiles();
+
+            RotativaHqConfiguration.SetRotativaHqApiKey("01dc122a482e48c390fad56cd3fdc354");
+            RotativaHqConfiguration.SetRotativaHqUrl("https://eunorth.rotativahq.com");
 
             app.UseMvc(routes =>
             {

@@ -4,6 +4,13 @@ using System.Text;
 
 namespace Models
 {
+    public enum Emotions
+    {
+        VeryPositive,
+        Positive,
+        Negative,
+        VeryNegative
+    }
     public class Starr 
     {
         public int Id { get; set; }
@@ -17,6 +24,22 @@ namespace Models
         public String Reflection { get; set; }
         public Emotions Feeling { get; set; }
         public String Coach { get; set; }
+        public List<Actionpoint> Actionpoints = new List<Actionpoint>();
+
+        public Starr(int id,String name, DateTime lastedit, string sit, string task, string act, string res, string refl, Emotions feel,String coach)
+        {
+            this.Id = id;
+            this.Name = name;
+            this.StartDate = DateTime.Now;
+            this.LastEdit = lastedit;
+            this.Situation = sit;
+            this.Task = task;
+            this.Action = act;
+            this.Result = res;
+            this.Reflection = refl;
+            this.Feeling = feel;
+            this.Coach = coach;
+        }
 
         public Starr()
         {

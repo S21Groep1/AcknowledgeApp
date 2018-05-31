@@ -8,17 +8,6 @@ namespace AcknowledgeApp.Models
 {
     public class Viewmodel
     {
-        Actionpoint actiepunt = new Actionpoint();
-
-
-        public string Actionpointdeadline
-        {
-            get
-            {
-                return actiepunt.StartDate();
-            }
-        }
-
         public List<string> Softskilllist()
         {
             List<string> softskills = new List<string>();
@@ -40,7 +29,12 @@ namespace AcknowledgeApp.Models
             return softskills;
         }
 
-        
+
+
+
+
+
+
 
     }
 }

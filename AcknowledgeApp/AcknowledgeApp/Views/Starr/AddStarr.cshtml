@@ -1,13 +1,11 @@
-﻿@using Models;
-@model StarrViewModel
+﻿﻿@using Models
+@model Models.Starr
 
 @section Styles {
     <link href="@Url.Content("~/css/StarrPageStyle.css")" rel="stylesheet" type="text/css" />
 }
+<!-- <script src="~/js/StarrPageScript.js"></script>  -->
 
-@section Scripts {
-    <script src="~/js/StarrPageScript.js"></script>
-}
 
 @{
     ViewData["Title"] = "STARR";
@@ -19,37 +17,52 @@
             <div class="text-center">
                 <h1 style="color: #0082CA">STARR</h1>
                 <hr>
-                <h2>Actionpoint 1</h2>
                 <div class="formwrapper">
                     <div class="form-group">
-                        <form id="formid" method="post">
-                            <label asp-for="Name"></label>
-                            <input asp-for="Name" class="form-control" rows="5" id="comment" style="width:40%;margin-left:30%">
-
-                            <label asp-for="Situation"></label>
-                            <textarea asp-for="Situation" class="form-control" rows="5" id="comment"></textarea>
-
-                            <label asp-for="Task"></label>
-                            <textarea asp-for="Task" class="form-control" rows="5" id="comment"></textarea>
-
-                            <label asp-for="Action"></label>
-                            <textarea asp-for="Action" class="form-control" rows="5" id="comment"></textarea>
-
-                            <label asp-for="Result"></label>
-                            <textarea asp-for="Result" class="form-control" rows="5" id="comment"></textarea>
-
-                            <label asp-for="Reflection"></label>
-                            <textarea asp-for="Reflection" class="form-control" rows="5" id="comment"></textarea>
+                        <form method="post">
+                            <div class="form-group">
+                                <label asp-for="Id"></label>
+                                <input asp-for="Id" class="form-control" required="Required"/>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Name"></label>
+                                <input asp-for="Name" class="form-control" required="Required"/>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Coach"></label>
+                                <input asp-for="Coach" class="form-control" required="Required"/>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Situation"></label>
+                                <textarea asp-for="Situation" class="form-control" required="Required"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Task"></label>
+                                <textarea asp-for="Task" class="form-control" required="Required"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Action"></label>
+                                <textarea asp-for="Action" class="form-control" required="Required"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Result"></label>
+                                <textarea asp-for="Result" class="form-control" required="Required"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Reflection"></label>
+                                <textarea asp-for="Reflection" class="form-control" required="Required"></textarea>
+                            </div>
                             <hr>
                             <div id="smileys">
-                                <input asp-for="Feeling" type="radio" name="smiley" value="sad" class="sad">
-                                <input asp-for="Feeling" type="radio" name="smiley" value="neutral" class="neutral">
-                                <input asp-for="Feeling" type="radio" name="smiley" value="happy" class="happy" checked="checked">
-
+                                <input  type="radio" name="smiley" value="sad" class="sad">
+                                <input  type="radio" name="smiley" value="neutral" class="neutral">
+                                <input  type="radio" name="smiley" value="happy" class="happy" checked="checked">
                             </div>
-                        </form>
 
-                        <a class="btn btn-success" data-toggle="modal" href="#coachModal">Add Coach</a>
+
+                            <button type="submit" class="btn btn-default">Submit</button>
+                            <!-- <a class="btn btn-success" data-toggle="modal" href="#coachModal">Add Coach</a> -->
+                        </form>
                     </div>
                 </div>
             </div>
@@ -108,7 +121,7 @@
                     <option>Lia</option>
                 </select>
                 <hr>
-                <button form="formid" type="submit" class="btn btn-default">Finish</button>
+                <a class="btn btn-success" href='@Url.Action("Index", "Home")'>Finish</a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
