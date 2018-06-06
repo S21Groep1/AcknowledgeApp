@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Models
 {
-    public enum Emotions
+    public enum eEmotion
     {
         Positive,
         Neutral,

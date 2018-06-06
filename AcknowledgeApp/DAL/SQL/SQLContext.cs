@@ -126,7 +126,8 @@ namespace DAL
                             {
                                 while (reader.Read())
                                 {
-                                    starrs.Add(new Starr(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetString(7), (Emotions)reader.GetString(8), reader.GetString(9)));
+
+                                    starrs.Add(new Starr(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3), reader.GetString(4), reader.GetString(5), reader.GetString(6), reader.GetString(7), (eEmotion)Enum.Parse(typeof(eEmotion), reader.GetString(8)), reader.GetString(9)));
                                 }
                             }
                         }
