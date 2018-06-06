@@ -7,17 +7,9 @@ namespace DAL
 {
     public class StarrRepository
     {
-        private readonly IStarrContext context = new StarrContext();
+        private readonly IStarrContext context = new StarrMemoryContext();
 
-        public List<Starr> GetAllStarrs()
-        {
-            return context.GetAllStarrs();
-        }
-
-        public Starr GetStarrById(int id)
-        {
-            return context.GetStarrById(id);
-        }
+        public IEnumerable<Starr> GetAll() => context.GetAll();
 
         public void UpdateStarr(Starr sf)
         {

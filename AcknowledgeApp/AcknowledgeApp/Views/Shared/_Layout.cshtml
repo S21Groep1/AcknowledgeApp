@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="nl">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,13 +25,20 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a asp-area="" asp-controller="Home" asp-action="Homepage"><span class="glyphicon glyphicon-home"></span></a></li>
-            <li><a asp-area="" asp-controller="Action" asp-action="Index">Actionpoints</a></li>
-            <li><a asp-area="" asp-controller="Starr" asp-action="Index">STARR</a></li>
+            <li><a asp-area="" asp-controller="Action" asp-action="Index" ><div data-translate="actiepunten">Actiepunten</div></a></li>
+            <li><a asp-area="" asp-controller="Starr" asp-action="Index" key="STARR">STARR</a></li>
             <li><a asp-area="" asp-controller="Starr" asp-action="StarrList"><span class="glyphicon glyphicon-th-list"></span></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a asp-area="" asp-controller="Account" asp-action="Index"><span class="glyphicon glyphicon-user"></span> My Account</a></li>
-            <li><a asp-area="" asp-controller="Home" asp-action="Index"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+            <li>
+                <button onclick="translate_to_nl"><img class="language-icon" src="~/images/flag-icon netherlands.png" /></button>
+            </li>
+            <li>
+                <button onclick="translate_to_en"><img class="language-icon" src="~/images/flag-icon united kingdom.png" /></button>
+            </li>
+            
+            <li key="mijnaccount"><a asp-area="" asp-controller="Account" asp-action="Index"><span class="glyphicon glyphicon-user"></span > Mijn Account</a></li>
+            <li key="loguit"><a asp-area="" asp-controller="Home" asp-action="Index"><span class="glyphicon glyphicon-log-out"></span> Log Uit</a></li>
         </ul>
     </div>
 </nav>
@@ -45,6 +52,7 @@
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="~/js/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>      
     </environment>
