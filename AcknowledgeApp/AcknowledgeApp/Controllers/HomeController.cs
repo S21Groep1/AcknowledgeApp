@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using AcknowledgeApp.Models;
+using Models;
 
 namespace AcknowledgeApp.Controllers
 {
@@ -13,6 +13,12 @@ namespace AcknowledgeApp.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(User user)
+        {
+            return View(user);
         }
 
         // Returns .../Home/Homepage
