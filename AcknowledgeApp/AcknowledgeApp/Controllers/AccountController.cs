@@ -12,5 +12,10 @@ namespace AcknowledgeApp.Controllers
         {
             return View();
         }
+
+        public IActionResult CoachPage()
+        {
+            return View();
+        }
     }
 }
