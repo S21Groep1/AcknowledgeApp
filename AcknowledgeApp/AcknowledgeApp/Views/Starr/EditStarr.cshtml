@@ -1,6 +1,4 @@
-﻿﻿@using Models
-@model Models.Starr
-
+﻿@model ActionPointStarrViewModel
 
 @{
     ViewData["Title"] = "EditStarr";
@@ -11,46 +9,51 @@
         <div class="row">
             <div class="col-sm-4">
                 <h2>Edit</h2>
-                <form method="post">
+                <form asp-controller="Starr" asp-action="EditStarr" method="post" >
                     <div class="form-group">
-                        <label asp-for="Id"></label>
-                        <input asp-for="Id" class="form-control" readonly />
+                        <label asp-for="@Model.starr.Id"></label>
+                        <input asp-for="@Model.starr.Id" class="form-control" readonly placeholder="@Model.starr.Id" />
                     </div>
                     <div class="form-group">
-                        <label asp-for="Name"></label>
-                        <input asp-for="Name" class="form-control" />
+                        <label asp-for="@Model.starr.Name"></label>
+                        <input asp-for="@Model.starr.Name" class="form-control" placeholder="@Model.starr.Name" />
                     </div>
                     <div class="form-group">
-                        <label asp-for="StartDate"></label>
-                        <input asp-for="StartDate" class="form-control" readonly />
+                        <label asp-for="@Model.starr.StartDate"></label>
+                        <input asp-for="@Model.starr.StartDate" class="form-control" readonly placeholder="@Model.starr.StartDate" />
                     </div>
                     <div class="form-group">
-                        <label asp-for="LastEdit"></label>
-                        <input asp-for="LastEdit" class="form-control" readonly />
+                        <label asp-for="@Model.starr.LastEdit"></label>
+                        <input asp-for="@Model.starr.LastEdit" class="form-control" readonly placeholder="@Model.starr.LastEdit" />
                     </div>
                     <div class="form-group">
-                        <label asp-for="Coach"></label>
-                        <input asp-for="Coach" class="form-control" />
+                        <label asp-for="@Model.coachName"></label>
+                        <select asp-for="@Model.coachName" class="form-control">
+                            @foreach(string coach in Model.Coaches)
+                            {
+                                <option>@coach</option>
+                            }
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Situation"></label>
-                        <textarea asp-for="Situation" class="form-control"></textarea>
+                        <label asp-for="@Model.starr.Situation"></label>
+                        <textarea asp-for="@Model.starr.Situation" class="form-control">@Model.starr.Situation</textarea>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Task"></label>
-                        <textarea asp-for="Task" class="form-control"></textarea>
+                        <label asp-for="@Model.starr.Task"></label>
+                        <textarea asp-for="@Model.starr.Task" class="form-control">@Model.starr.Task</textarea>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Action"></label>
-                        <textarea asp-for="Action" class="form-control"></textarea>
+                        <label asp-for="@Model.starr.Action"></label>
+                        <textarea asp-for="@Model.starr.Action" class="form-control">@Model.starr.Action</textarea>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Result"></label>
-                        <textarea asp-for="Result" class="form-control"></textarea>
+                        <label asp-for="@Model.starr.Result"></label>
+                        <textarea asp-for="@Model.starr.Result" class="form-control">@Model.starr.Result</textarea>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Reflection"></label>
-                        <textarea asp-for="Reflection" class="form-control"></textarea>
+                        <label asp-for="@Model.starr.Reflection"></label>
+                        <textarea asp-for="@Model.starr.Reflection" class="form-control">@Model.starr.Reflection</textarea>
                     </div>
 
                     <br />
@@ -61,5 +64,3 @@
         </div>
     </div>
 </div>
-
-

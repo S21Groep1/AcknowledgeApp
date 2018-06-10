@@ -1,4 +1,5 @@
 ﻿@model ActionPointStarrViewModel
+
 @section Styles {
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
@@ -44,13 +45,13 @@
     <div class="container" style="text-align: center">
         <div class="container-fluid" style="background-color: white; border-radius: 25px;" >
             <h2>AddActionPoint</h2>
-            <h4>@Model.CurrentStarr.Name</h4>
+            <h4>@Model.starr.Name</h4>
             <div style="text-align: center">
                 <ul id="sortable1" class="connectedSortable">
                     <li class="ui-state-default">Improve documenting</li>
                 </ul>
                 <ul id="sortable2" class="connectedSortable">
-                    @foreach (var ap in Model.Points)
+                    @foreach (var ap in Model.starr.Actionpoints)
                     {
                         <li class="ui-state-default">@ap.Specific</li>
                     }

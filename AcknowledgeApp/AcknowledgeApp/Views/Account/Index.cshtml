@@ -1,4 +1,5 @@
-﻿
+﻿@model Models.User
+
 @{
     ViewData["Title"] = "Account";
 }
@@ -8,12 +9,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title" id="myModalLabel">Jari Scholten</h4>
+                <h4 class="modal-title" id="myModalLabel">@Model.FirstName  @Model.LastName</h4>
             </div>
             <div class="modal-body">
                 <center>
                     <a><img src="~/images/placeholder.png" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                    <h3 class="media-heading">Jari Scholten<small>NL</small></h3>
+                    <h3 class="media-heading">@Model.FirstName  @Model.LastName<small>NL</small></h3>
                     <span><strong>Skills: </strong></span>
                     <span class="label label-warning">HTML5/CSS</span>
                     <span class="label label-info">Java</span>
@@ -22,7 +23,7 @@
                 </center>
                 <hr>
                 <center>
-                    <h2 class="text-center"><strong>Bio </strong></h2>
+                    <h2 class="text-center"><strong>Bio</strong></h2>
                     <br>
                     <p>Currently a HBO-ICT student at Fontys Eindhoven where I am helping acknowledge with their webapplication.</p>
                     <br>
@@ -30,19 +31,19 @@
                     <h2 class="text-center"><strong> Information </strong></h2>
                     <br>
                     <p class="text-center"><strong> Email </strong></p>
-                    <input type="email" name="email" placeholder="jari.scholten@gmail.com" required class="form-control input-lg" />
+                    <input asp-for="@Model.Email" name="email" placeholder="@Model.Email" required class="form-control input-lg" />
                     <br>
                     <p class="text-center"><strong> Username </strong></p>
-                    <input type="text" name="username" placeholder="jscholten@acknowledge.nl" required class="form-control input-lg" />
+                    <input asp-for="@Model.Email" name="email" placeholder="@Model.Email" required class="form-control input-lg" />
                     <br>
                     <p class="text-center"><strong> Firstname </strong></p>
-                    <input type="text" name="firstname" placeholder="Jari" required class="form-control input-lg" />
+                    <input asp-for="@Model.FirstName" name="email" placeholder="@Model.FirstName" required class="form-control input-lg" />
                     <br>
                     <p class="text-center"><strong> Lastname </strong></p>
-                    <input type="text" name="lastname" placeholder="Scholten" required class="form-control input-lg" />
+                    <input asp-for="@Model.LastName" name="email" placeholder="@Model.LastName" required class="form-control input-lg" />
                     <br>
                     <p class="text-center"><strong> Adress </strong></p>
-                    <input type="text" name="adress" placeholder="Lampendriessen 31-588" required class="form-control input-lg" />
+                    <input asp-for="@Model.Adress" name="email" placeholder="@Model.Adress" required class="form-control input-lg" />
                     <br>
                     <button type="button" class="btn btn-primary">Edit</button>
                 </center>
@@ -51,4 +52,3 @@
     </div>
 </div>
 <div style="height: 30px;"></div>
-

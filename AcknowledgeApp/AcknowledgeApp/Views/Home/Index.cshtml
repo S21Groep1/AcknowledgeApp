@@ -1,8 +1,8 @@
-﻿@using Models
+﻿@model Models.User
+
 @{
     Layout = null;
 }
-
 
 <!DOCTYPE html>
 
@@ -22,21 +22,18 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <section class="login-form">
-                    <!-- <input asp-for="model">  has to be add when outsourcing is done-->
-                    <form asp-controller="Home" asp-action="HomePage" method="post" role="login">
+                    <form asp-controller="Home" asp-action="Index" method="post" role="login">
                         <img src="~/images/header-logo.png" class="img-responsive" alt="" />
-                        <input type="email" name="email" placeholder="Email" required class="form-control input-lg" />
-                        <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+                        <input asp-for="@Model.Email" name="email" placeholder="Email" required class="form-control input-lg" />
+                        <input asp-for="@Model.Password" type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
                         <div class="pwstrength_viewport_progress"></div>
+                        <p style="color: white;">@ViewData["ErrorMessage"]</p>
                         <button type="submit" name="go" class="btn btn-lg btn-success btn-block">Sign in</button>
                         <div>
                             <p class="createLabel">@Html.ActionLink("Reset password", "Reset", "Home")</p>
                         </div>
                     </form>
-                    @*@Html.ActionLink("link text", "someaction", "somecontroller", new { id = "123" }, null)
-                    @Url.Action("Reset", "Home")*@
                 </section>
-
             </div>
             <div class="col-md-4"></div>
         </div>

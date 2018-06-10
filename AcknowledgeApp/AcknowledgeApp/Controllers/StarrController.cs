@@ -1,91 +1,111 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AcknowledgeApp.Models;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Rewrite.Internal.ApacheModRewrite;
-using Microsoft.AspNetCore.Rewrite.Internal.IISUrlRewrite;
 using Models;
 using Logic;
 using RotativaHQ.AspNetCore;
+using Microsoft.AspNetCore.Http;
+using AcknowledgeApp.ViewModels;
+using System;
 
 namespace AcknowledgeApp.Controllers
 {
     public class StarrController : Controller
     {
-        private Starr_Logic logic = new Starr_Logic();
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Index(Starr s)
-        {
-            logic.addStarr(s);
-            return RedirectToAction("StarrList");
-        }
+        private UserLogic userLogic = new UserLogic();
+        private StarrLogic starrLogic = new StarrLogic();
+        private ActionpointLogic actionLogic = new ActionpointLogic();
 
         public IActionResult StarrList()
         {
-            StarrListViewModel viewmodel = new StarrListViewModel(logic.GetAllStarrs());
+            int userId = userLogic.GetAccountByEmail(HttpContext.Session.GetString("Email")).Id;
+            List<string> Coaches = userLogic.GetAllCoachesNames();
+            List<string> Softskills = starrLogic.GetAllSoftSkills();
+            Actionpoint actionpoint = new Actionpoint();
+            Starr starr = new Starr();
+            List<Starr> starrList = starrLogic.GetAllStarsForUser(userId);
+            List<Actionpoint> allActionPoints = actionLogic.GetAllActionpointsByUser(userId);
+            List<Actionpoint> starrActionPoints = starr.Actionpoints;
+            ActionPointStarrViewModel viewModel = new ActionPointStarrViewModel(Coaches, Softskills, actionpoint, starr, starrActionPoints, allActionPoints, starrList);
 
-            return View(viewmodel);
+            return View(viewModel);
         }
 
         public IActionResult EditStarr(int id)
         {
-            Starr sf = logic.GetStarrById(id);
+            int userId = userLogic.GetAccountByEmail(HttpContext.Session.GetString("Email")).Id;
+            List<string> Coaches = userLogic.GetAllCoachesNames();
+            List<string> Softskills = starrLogic.GetAllSoftSkills();
+            Actionpoint actionpoint = new Actionpoint();
+            Starr starr = starrLogic.GetStarrById(id); ;
+            List<Starr> starrList = starrLogic.GetAllStarsForUser(userId);
+            List<Actionpoint> allActionPoints = actionLogic.GetAllActionpointsByUser(userId);
+            List<Actionpoint> starrActionPoints = starr.Actionpoints;
+            ActionPointStarrViewModel viewModel = new ActionPointStarrViewModel(Coaches, Softskills, actionpoint, starr, starrActionPoints, allActionPoints, starrList);
 
-            if (sf == null)
-            {
-                return NotFound(id);
-            }
-
-            return View(sf);
-        }
-
-        public IActionResult AddActionPoint(int id)
-        {
-            Starr sf = logic.GetStarrById(id);
-            Actionpoint p = new Actionpoint(DateTime.Now, "Improve writing", "test", "test", "test", "test");
-            Actionpoint p1 = new Actionpoint(DateTime.Now, "Improve reading", "test", "test", "test", "test");
-            Actionpoint p2 = new Actionpoint(DateTime.Now, "Improve listening", "test", "test", "test", "test");
-            Actionpoint p3 = new Actionpoint(DateTime.Now, "Improve teamwork", "test", "test", "test", "test");
-            Actionpoint p4 = new Actionpoint(DateTime.Now, "Improve testing", "test", "test", "test", "test");
-
-            List<Actionpoint> points = new List<Actionpoint>();
-            points.Add(p);
-            points.Add(p1);
-            points.Add(p2);
-            points.Add(p3);
-            points.Add(p4);
-
-            ActionPointStarrViewModel viewmodel = new ActionPointStarrViewModel(points, sf);
-
-
-            if (sf == null)
-            {
-                return NotFound(id);
-            }
-
-            return View(viewmodel);
+            return View(viewModel); 
         }
 
         [HttpPost]
-        public IActionResult EditStarr(Starr starr)
+        public IActionResult EditStarr(ActionPointStarrViewModel viewModel)
         {
-            logic.UpdateStarr(starr);
+            Starr starr = viewModel.starr;
+            starr.UserId = userLogic.GetAccountByEmail(HttpContext.Session.GetString("Email")).Id;
+            starr.CoachId = userLogic.GetCoachIdByName(viewModel.coachName);
+            starr.LastEdit = DateTime.Now;
+            starrLogic.UpdateStarr(starr);
             return RedirectToAction("StarrList");
         }
 
         public IActionResult PrintStarr(int id)
         {
-            var report = new ViewAsPdf("EditStarr");
-            return report;
+            int userId = userLogic.GetAccountByEmail(HttpContext.Session.GetString("Email")).Id;
+            List<string> Coaches = userLogic.GetAllCoachesNames();
+            List<string> Softskills = starrLogic.GetAllSoftSkills();
+            Actionpoint actionpoint = new Actionpoint();
+            List<Actionpoint> actionpointList = actionLogic.GetAllActionpointsByUser(userId);
+            Starr starr = starrLogic.GetStarrById(id);
+            List<Actionpoint> allActionPoints = actionLogic.GetAllActionpointsByUser(userId);
+            List<Actionpoint> starrActionPoints = starr.Actionpoints;
+            List<Starr> starrList = starrLogic.GetAllStarsForUser(userId);
+            ActionPointStarrViewModel viewModel = new ActionPointStarrViewModel(Coaches, Softskills, actionpoint, starr, starrActionPoints, allActionPoints, starrList);
+            return new ViewAsPdf(viewModel);
         }
 
+        public IActionResult AddStarr()
+        {
+            int userId = userLogic.GetAccountByEmail(HttpContext.Session.GetString("Email")).Id;
+
+            List<string> Coaches = userLogic.GetAllCoachesNames();
+            List<string> Softskills = starrLogic.GetAllSoftSkills();
+            Actionpoint actionpoint = new Actionpoint();
+            List<Actionpoint> actionpointList = actionLogic.GetAllActionpointsByUser(userId);
+            Starr starr = new Starr();
+            List<Actionpoint> allActionPoints = actionLogic.GetAllActionpointsByUser(userId);
+            List<Actionpoint> starrActionPoints = starr.Actionpoints;
+            List<Starr> starrList = starrLogic.GetAllStarsForUser(userId);
+            ActionPointStarrViewModel viewModel = new ActionPointStarrViewModel(Coaches, Softskills, actionpoint, starr, starrActionPoints, allActionPoints, starrList);
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult AddStarr(ActionPointStarrViewModel viewModel)
+        {
+            Starr starr = viewModel.starr;
+            starr.UserId = userLogic.GetAccountByEmail(HttpContext.Session.GetString("Email")).Id;
+            starr.CoachId = userLogic.GetCoachIdByName(viewModel.coachName);
+            starr.StartDate = DateTime.Now;
+            starr.LastEdit = DateTime.Now;
+
+            starrLogic.AddStarr(starr);
+            return RedirectToAction("AddStarr", "Starr");
+        }
+
+        [HttpPost]
+        public void AddActionPointToStarr([FromBody] int[] somearray)
+        {
+            int actionPointId = somearray[0];
+            int starrId = somearray[1];
+            actionLogic.AddActionPointToStarr(actionPointId, starrId);
+        }
     }
 }
