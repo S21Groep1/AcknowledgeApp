@@ -157,7 +157,7 @@ namespace DAL
                             returnList.Add(new Actionpoint()
                             {
                                 Assignable = reader["Assignable"].ToString(),
-                                LastEdit = Convert.ToDateTime(reader["EditDate"]),
+                                LastEdit = Convert.ToDateTime(reader["LastEdit"]),
                                 Id = Convert.ToInt32(reader["Id"]),
                                 Iscomplete = Convert.ToBoolean(reader["IsComplete"]),
                                 Measurable = reader["Measurable"].ToString(),
