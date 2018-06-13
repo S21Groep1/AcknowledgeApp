@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -28,7 +27,7 @@
     <div class="container-fluid text-center bg-grey">
         <div class="row text-center">
             <div class="col-sm-4">
-                <a asp-area="" asp-controller="Action" asp-action="Index">
+                <a href="@Url.Action("Index", "Action")">
                     <div class="thumbnail">
                         <span class="glyphicon glyphicon-flash logo-small"></span>
                         <h4><strong>Actionpoints</strong></h4>
@@ -52,7 +51,7 @@
                 </a>
             </div>
             <div class="col-sm-6">
-                <a asp-area="" asp-controller="Account" asp-action="Index">
+                <a href="@Url.Action("Index","Account")">
                     <div class="thumbnail">
                         <span class="glyphicon glyphicon-user logo-small"></span>
                         <h4><strong>Account</strong></h4>
@@ -60,7 +59,7 @@
                 </a>
             </div>
             <div class="col-sm-6">
-                <a asp-area="" asp-controller="Home" asp-action="Index">
+                <a href="@Url.Action("Logout", "Home")">
                     <div class="thumbnail">
                         <span class="glyphicon glyphicon-log-out logo-small"></span>
                         <h4><strong>Logout</strong></h4>

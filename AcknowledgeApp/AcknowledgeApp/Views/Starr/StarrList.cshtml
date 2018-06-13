@@ -1,15 +1,19 @@
-﻿@model StarrListViewModel
+﻿@model ActionPointStarrViewModel
 
 @section Styles {
     <link href="@Url.Content("~/css/StarrListStyle.css")" rel="stylesheet" type="text/css" />
 }
 
 @section Scripts {
-    <script src="~/js/StarrListScript.js"></script>
+    <script src="~/js/StarrPageScript.js"></script>
 }
 
 @{
     ViewData["Title"] = "StarrList";
+}
+
+@functions{
+    int selectedStarrId = 0;
 }
 
 <div class="container">
@@ -30,16 +34,34 @@
                         <th style="width:10%;"></th>
                         <th style="width:10%;"></th>
                     </tr>
-                    @foreach (var starrform in Model.Starrs)
+                    @foreach (var starr in Model.starrList)
                     {
-                        <tr>
-                            <td>@starrform.Name</td>
-                            <td>@starrform.LastEdit</td>
-                            <td>@starrform.Coach</td>
-                            <td><a asp-action="EditStarr" asp-route-id="@starrform.Id"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                            <td><a asp-action="PrintStarr" asp-route-id="@starrform.Id"><span class="glyphicon glyphicon-print"></span></a></td>
-                            <td><a asp-action="AddActionPoint" asp-route-id="@starrform.Id"><span class="glyphicon glyphicon-plus"></span></a></td>
-                        </tr>
+                    <tr>
+                        <td>@starr.Name</td>
+                        <td>@starr.LastEdit</td>
+                        <td>@starr.CoachId</td>
+                        <td>
+                            <a asp-action="EditStarr" asp-route-id="@starr.Id">
+                                <span class="glyphicon glyphicon-pencil">
+
+                                </span>
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-action="PrintStarr" asp-route-id="@starr.Id">
+                            <span class="glyphicon glyphicon-print">
+
+                            </span>
+                            </a>
+                        </td>
+                        <td>
+                            <a onclick="SetStarrId(@starr.Id); showActionPoints();" >
+                                 <span class="glyphicon glyphicon-plus">
+
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
                     }
                 </table>
                 <br>
@@ -49,3 +71,26 @@
 </div>
 <div style="height: 30px;"></div>
 
+<div class="modal fade text-center" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Actionpoints</h4>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    @foreach (var actionpoint in Model.allActionPointsOfUser)
+                    {
+                        <a onclick="AddActionPointToStarr(@actionpoint.Id)" data-dismiss="modal" class="list-group-item list-group-item-action">@actionpoint.SoftSkill</a>
+                    }
+                </div>  
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

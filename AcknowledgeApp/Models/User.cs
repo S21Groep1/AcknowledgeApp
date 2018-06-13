@@ -1,27 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Models
+﻿namespace Models
 {
-    class User
+    public class User
     {
-        private string firstname;
-        private string lastname;
-        private Functions function;
-        private int level;
-        private List<string> hardskilllist;
-
-        public string Firstname { get => firstname; set => firstname = value; }
-        public string Lastname { get => lastname; set => lastname = value; }
-        public int Niveau { get => level; set => level = value; }
-        public List<string> Hardskilllist { get => hardskilllist; set => hardskilllist = value; }
-        public Functions Function { get => function; set => function = value; }
-
-        public enum Functions
-        {
-            Employee,
-            Trainee
-        }
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public int Niveau { get; set; }
+        public bool IsCoach { get; set; }
+        public eFunctions Function { get; set; }
+        public string Adress { get; set; }
     }
 }

@@ -1,25 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using Logic;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using AcknowledgeApp.Models;
+using Models;
 
 namespace AcknowledgeApp.Controllers
 {
     public class HomeController : Controller
     {
+        UserLogic logic = new UserLogic();
+
+        [TempData]
+        private string ErrorMessage { get; set; }
+
         public IActionResult Index()
+        {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Email")))
+            {
+                ViewData["ErrorMessage"] = ErrorMessage;
+                return View();
+            }
+            return RedirectToAction("Homepage", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult Index(User user)
+        {
+            try
+            {
+                User u = new User() { Email = user.Email, Password = user.Password };
+                logic.Login(u);
+                HttpContext.Session.SetString("Email", u.Email);
+                return RedirectToAction("Index", "TwoFactor");
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+                ViewData["ErrorMessage"] = ErrorMessage;
+                return View();
+            }
+        }
+
+        public IActionResult Homepage()
         {
             return View();
         }
 
-        // Returns .../Home/Homepage
-        public ActionResult Homepage()
+        public IActionResult Logout()
         {
-            //property's email and wachtwoord are setted
-            return View();
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

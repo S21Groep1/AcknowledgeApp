@@ -1,11 +1,12 @@
-﻿﻿@using Models
-@model Models.Starr
+﻿@model ActionPointStarrViewModel
 
 @section Styles {
     <link href="@Url.Content("~/css/StarrPageStyle.css")" rel="stylesheet" type="text/css" />
 }
-<!-- <script src="~/js/StarrPageScript.js"></script>  -->
 
+@section Scripts {
+    <script src="~/js/StarrPageScript.js"></script>  
+}
 
 @{
     ViewData["Title"] = "STARR";
@@ -21,42 +22,44 @@
                     <div class="form-group">
                         <form method="post">
                             <div class="form-group">
-                                <label asp-for="Id"></label>
-                                <input asp-for="Id" class="form-control" required="Required"/>
+                                <label asp-for="@Model.starr.Name"></label>
+                                <input asp-for="@Model.starr.Name" class="form-control" required="Required" />
                             </div>
                             <div class="form-group">
-                                <label asp-for="Name"></label>
-                                <input asp-for="Name" class="form-control" required="Required"/>
+                                <label asp-for="@Model.coachName"></label>
+                                <select asp-for="@Model.coachName" required class="form-control">
+                                    @foreach (string coach in Model.Coaches)
+                                    {
+                                        <option>@coach</option>
+                                    }
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Coach"></label>
-                                <input asp-for="Coach" class="form-control" required="Required"/>
+                                <label asp-for="@Model.starr.Situation"></label>
+                                <textarea asp-for="@Model.starr.Situation" class="form-control" required="Required"></textarea>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Situation"></label>
-                                <textarea asp-for="Situation" class="form-control" required="Required"></textarea>
+                                <label asp-for="@Model.starr.Task"></label>
+                                <textarea asp-for="@Model.starr.Task" class="form-control" required="Required"></textarea>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Task"></label>
-                                <textarea asp-for="Task" class="form-control" required="Required"></textarea>
+                                <label asp-for="@Model.starr.Action"></label>
+                                <textarea asp-for="@Model.starr.Action" class="form-control" required="Required"></textarea>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Action"></label>
-                                <textarea asp-for="Action" class="form-control" required="Required"></textarea>
+                                <label asp-for="@Model.starr.Result"></label>
+                                <textarea asp-for="@Model.starr.Result" class="form-control" required="Required"></textarea>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Result"></label>
-                                <textarea asp-for="Result" class="form-control" required="Required"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="Reflection"></label>
-                                <textarea asp-for="Reflection" class="form-control" required="Required"></textarea>
+                                <label asp-for="@Model.starr.Reflection"></label>
+                                <textarea asp-for="@Model.starr.Reflection" class="form-control" required="Required"></textarea>
                             </div>
                             <hr>
                             <div id="smileys">
-                                <input  type="radio" name="smiley" value="sad" class="sad">
-                                <input  type="radio" name="smiley" value="neutral" class="neutral">
-                                <input  type="radio" name="smiley" value="happy" class="happy" checked="checked">
+                                <input asp-for="@Model.starr.Feeling" type="radio" value="1" class="sad" />
+                                <input asp-for="@Model.starr.Feeling" type="radio" value="2" class="neutral" />
+                                <input asp-for="@Model.starr.Feeling" type="radio" value="3" class="neutral" />
+                                <input asp-for="@Model.starr.Feeling" type="radio" value="4" class="happy" />
                             </div>
 
 
@@ -69,65 +72,3 @@
         </div>
     </div>
 </div>
-
-<!-- Modal -->
-<div class="modal fade text-center" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Actionpoints</h4>
-            </div>
-            <div class="modal-body">
-                <div class="list-group">
-                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 1</a>
-                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 2</a>
-                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 3</a>
-                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 4</a>
-                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 5</a>
-                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 6</a>
-                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 7</a>
-                    <a href="#" data-dismiss="modal" class="list-group-item list-group-item-action">Actionpoint 8</a>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade text-center" id="coachModal" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Coaches</h4>
-            </div>
-            <div class="modal-body">
-                <select multiple class="form-control" id="sel2">
-                    <option>Jan</option>
-                    <option>Henk</option>
-                    <option>Piet</option>
-                    <option>Linda</option>
-                    <option>Marianne</option>
-                    <option>Thomas</option>
-                    <option>Gerard</option>
-                    <option>Lia</option>
-                </select>
-                <hr>
-                <a class="btn btn-success" href='@Url.Action("Index", "Home")'>Finish</a>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-<div style="height: 30px;"></div>

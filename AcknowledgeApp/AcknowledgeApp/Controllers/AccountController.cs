@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Models;
+using Logic;
+using Microsoft.AspNetCore.Http;
 
 namespace AcknowledgeApp.Controllers
 {
     public class AccountController : Controller
     {
+        UserLogic logic = new UserLogic();
+        
         public IActionResult Index()
         {
-            return View();
+            User user = logic.GetAccountByEmail(HttpContext.Session.GetString("Email"));
+            return View(user);
         }
     }
 }
