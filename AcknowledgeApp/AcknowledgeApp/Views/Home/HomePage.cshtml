@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     Layout = null;
 }
 
@@ -27,7 +28,7 @@
     <div class="container-fluid text-center bg-grey">
         <div class="row text-center">
             <div class="col-sm-4">
-                <a href="@Url.Action("Index", "Action")">
+                <a asp-area="" asp-controller="Action" asp-action="Index">
                     <div class="thumbnail">
                         <span class="glyphicon glyphicon-flash logo-small"></span>
                         <h4><strong>Actionpoints</strong></h4>
@@ -35,7 +36,7 @@
                 </a>
             </div>
             <div class="col-sm-4"> 
-                <a href="@Url.Action("AddStarr", "Starr")">
+                <a asp-area="" asp-controller="Starr" asp-action="Index">
                     <div class="thumbnail">
                         <span class="glyphicon glyphicon-file logo-small"></span>
                         <h4><strong>New STARR</strong></h4>
@@ -43,7 +44,7 @@
                 </a>
             </div>
             <div class="col-sm-4">
-                <a href="@Url.Action("StarrList", "Starr")">
+                <a asp-area="" asp-controller="Starr" asp-action="StarrList">
                     <div class="thumbnail">
                         <span class="glyphicon glyphicon-th-list logo-small"></span>
                         <h4><strong>STARR List</strong></h4>
@@ -51,7 +52,7 @@
                 </a>
             </div>
             <div class="col-sm-6">
-                <a href="@Url.Action("Index","Account")">
+                <a asp-area="" asp-controller="Account" asp-action="Index">
                     <div class="thumbnail">
                         <span class="glyphicon glyphicon-user logo-small"></span>
                         <h4><strong>Account</strong></h4>
@@ -59,10 +60,10 @@
                 </a>
             </div>
             <div class="col-sm-6">
-                <a href="@Url.Action("Logout", "Home")">
+                <a asp-area="" asp-controller="Account" asp-action="CoachPage">
                     <div class="thumbnail">
-                        <span class="glyphicon glyphicon-log-out logo-small"></span>
-                        <h4><strong>Logout</strong></h4>
+                        <span class="glyphicon glyphicon-folder-open logo-small"></span>
+                        <h4><strong>Coach Page</strong></h4>
                     </div>
                 </a>
             </div>

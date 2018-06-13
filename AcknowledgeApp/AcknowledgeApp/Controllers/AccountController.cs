@@ -14,5 +14,10 @@ namespace AcknowledgeApp.Controllers
             User user = logic.GetAccountByEmail(HttpContext.Session.GetString("Email"));
             return View(user);
         }
+
+        public IActionResult CoachPage()
+        {
+            return View();
+        }
     }
 }
