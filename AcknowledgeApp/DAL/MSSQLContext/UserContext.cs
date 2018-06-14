@@ -66,7 +66,7 @@ namespace DAL
 
                     int? check = (int?)cmd.ExecuteScalar();
 
-                    if(check == 1)
+                    if(check != null)
                     {
                         return true;
                     }
