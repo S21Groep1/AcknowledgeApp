@@ -19,5 +19,6 @@ namespace Repository
         public void UpdateStarr(Starr starr) => context.UpdateStarr(starr);
         public void AddStarr(Starr starr) => context.AddStarr(starr);
         public List<string> GetAllSoftSkills() => context.GetAllSoftSkills();
+        
     }
 }

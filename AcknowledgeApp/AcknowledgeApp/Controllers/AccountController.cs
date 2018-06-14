@@ -21,7 +21,7 @@ namespace AcknowledgeApp.Controllers
         {
             int userid = HttpContext.Session.GetInt32("Userid").GetValueOrDefault(0);
             CoachViewModel vm = new CoachViewModel(slogic.GetAllStarrsForCoach(userid));
-            return View();
+            return View(vm);
         }
     }
 

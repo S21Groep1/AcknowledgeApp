@@ -30,8 +30,9 @@ namespace AcknowledgeApp.Controllers
             {
                 User u = new User() { Email = user.Email, Password = user.Password };
                 logic.Login(u);
+                User u2 = logic.GetAccountByEmail(u.Email);
                 HttpContext.Session.SetString("Email", u.Email);
-                HttpContext.Session.SetInt32("Userid",u.Id);
+                HttpContext.Session.SetInt32("Userid",u2.Id);
                 return RedirectToAction("Index", "TwoFactor");
             }
             catch (Exception ex)
