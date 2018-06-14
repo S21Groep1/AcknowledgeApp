@@ -1,4 +1,4 @@
-﻿
+﻿@model CoachViewModel
 @{
     ViewData["Title"] = "CoachPage";
 }
@@ -22,15 +22,10 @@
         <br/>
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for STARR by employee name" title="Type in a name">
         <ul id="myUL">
-            <li><a href="#">Adele</a></li>
-            <li><a href="#">Agnes</a></li>
-
-            <li><a href="#">Billy</a></li>
-            <li><a href="#">Bob</a></li>
-
-            <li><a href="#">Calvin</a></li>
-            <li><a href="#">Christina</a></li>
-            <li><a href="#">Cindy</a></li>
+            @foreach (var starr in @Model.Starrs)
+            {
+                <li><a href="#">@starr.Name</a></li>
+            }  
         </ul>
         <br/>
     </div>

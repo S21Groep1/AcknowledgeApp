@@ -31,6 +31,7 @@ namespace AcknowledgeApp.Controllers
                 User u = new User() { Email = user.Email, Password = user.Password };
                 logic.Login(u);
                 HttpContext.Session.SetString("Email", u.Email);
+                HttpContext.Session.SetInt32("Userid",u.Id);
                 return RedirectToAction("Index", "TwoFactor");
             }
             catch (Exception ex)
